@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 76.2 25.4"
+   height="1in"
+   width="3in">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-271.59998)"
+     id="layer1">
+    <rect
+       y="271.4772"
+       x="-0.083136082"
+       height="25.522778"
+       width="76.651474"
+       id="rect4896"
+       style="fill:#252729;fill-opacity:0.94986075;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98913042" />
+    <text
+       id="text12"
+       y="291.08649"
+       x="1.0648131"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.7963295px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f7f7f7;fill-opacity:1;stroke:none;stroke-width:0.38993117;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.7963295px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#f7f7f7;fill-opacity:1;stroke-width:0.38993117;"
+         y="291.08649"
+         x="1.0648131"
+         id="tspan10">We</tspan></text>
+    <path
+       id="path77"
+       d="m 34.302408,277.8101 c -1.262578,0.0221 -3.38345,0.52725 -3.874942,2.91763 -0.564532,2.74561 1.157849,5.59674 3.647228,8.1657 1.817947,1.9192 3.948816,3.16743 3.948816,3.16743 0,0 2.910617,-1.61643 4.317041,-3.16743 2.099515,-2.11412 4.093366,-5.30714 3.647228,-8.1657 -0.549588,-3.5214 -4.279699,-3.04269 -5.238939,-2.72724 -1.335959,0.43934 -2.541408,1.74708 -2.541408,1.74708 0,0 -1.205449,-1.30774 -2.541407,-1.74708 -0.299762,-0.0986 -0.789718,-0.20044 -1.363617,-0.19039 z"
+       style="fill:#ffffff;fill-opacity:0.96195649;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98913042" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.7963295px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f7f7f7;fill-opacity:1;stroke:none;stroke-width:0.38993117;"
+       x="47.415249"
+       y="292.38602"
+       id="text4894"><tspan
+         id="tspan4892"
+         x="47.415249"
+         y="292.38602"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.7963295px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#f7f7f7;fill-opacity:1;stroke-width:0.38993117;">We</tspan></text>
+  </g>
+</svg>
