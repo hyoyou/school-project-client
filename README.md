@@ -11,7 +11,7 @@ In the api directory, run `bundle install` to install dependencies. To migrate y
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/hyoyou/school-project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/hyoyou/school-project-client. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Authors
 

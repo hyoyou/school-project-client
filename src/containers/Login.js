@@ -10,6 +10,12 @@ class Login extends Component {
     }
   }
 
+  onInput = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
     return (
       <div className="row dark-background">
@@ -24,7 +30,9 @@ class Login extends Component {
               
               name="email"
               className="form-control" 
+              name="email"
               type="text" placeholder="please enter your email"
+              onChange={(event) => this.onInput(event)}
               value={this.state.email}
               />
 
@@ -32,7 +40,9 @@ class Login extends Component {
               <input 
               name="password"
               className="form-control" 
+              name="password"
               type="password" placeholder="please enter your password"
+              onChange={(event) => this.onInput(event)}
               value={this.state.password}
               />
 
