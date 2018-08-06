@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+const API_URL = "http://192.168.1.190:3001/api"
 
 class Login extends Component {
   constructor(props) {
@@ -6,7 +7,8 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      username: ""
     }
   }
 
@@ -16,13 +18,55 @@ class Login extends Component {
     })
   }
 
+  handleSubmit = (event) => {
+    
+    event.preventDefault();
+    
+    return fetch(`${API_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      
+      body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then((response) => {
+
+        if (response.errors) {
+          
+          throw Error(response.errors);
+        
+        } else{
+          localStorage.setItem('Token', response.token);
+          // localStorage.setItem('Username', response.username);
+          this.state.username = response.username
+        }        
+      })
+      .then(
+        this.setState({
+          email: "",
+          password: ""
+        })
+      )
+
+    
+      .catch( error => {
+        console.log(error);
+        localStorage.clear()
+      })
+
+      
+
+  }
+
   render() {
     return (
-      <div className="row dark-background">
-        <div className="col-sm-2"></div>
-        <div className="col-sm-8 form-styling">
+      <div className="row dark-background form-div">
+        <div className="col-sm-3"></div>
+        <div className="col-sm-6 form-styling ">
           <h1>Please login to get started</h1>
-          <form>
+          <form onSubmit={(event) => this.handleSubmit(event)}>
           <div className="form-group">
               
               <label>Email</label>
@@ -30,7 +74,7 @@ class Login extends Component {
               
               name="email"
               className="form-control" 
-              name="email"
+              
               type="text" placeholder="please enter your email"
               onChange={(event) => this.onInput(event)}
               value={this.state.email}
@@ -40,18 +84,18 @@ class Login extends Component {
               <input 
               name="password"
               className="form-control" 
-              name="password"
+            
               type="password" placeholder="please enter your password"
               onChange={(event) => this.onInput(event)}
               value={this.state.password}
               />
 
-              <button type="submit" className="btn custom-btn">Submit</button>
+              <button type="submit" className="btn submit-button">Submit</button>
             </div>
           </form>
         
         </div>
-        <div className="col-sm-2"></div>
+        <div className="col-sm-3"></div>
       </div>
     )
   }
