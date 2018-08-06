@@ -70,7 +70,6 @@ class Login extends Component {
               
               name="email"
               className="form-control" 
-              
               type="text" placeholder="please enter your email"
               onChange={(event) => this.onInput(event)}
               value={this.state.email}
@@ -80,7 +79,6 @@ class Login extends Component {
               <input 
               name="password"
               className="form-control" 
-            
               type="password" placeholder="please enter your password"
               onChange={(event) => this.onInput(event)}
               value={this.state.password}
