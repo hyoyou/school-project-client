@@ -1,4 +1,4 @@
-
+// button color - #ffd16d
 
 .school-logo {
   padding: 15px;
@@ -15,4 +15,18 @@
 
 .form-styling {
   background-color: #fff;
+}
+
+.form-div {
+  margin-top: 10%;
+}
+
+.form-div h1 {
+  font-size: 2em;
+  padding: 15px 0;
+}
+
+.submit-button {
+  margin: 15px 0;
+  background-color: #ffd16d;
 }

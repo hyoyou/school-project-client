@@ -21,7 +21,7 @@ class Login extends Component {
   handleSubmit = (event) => {
     
     event.preventDefault();
-    
+
     return fetch(`${API_URL}/login`, {
       method: 'POST',
       headers: {
@@ -39,8 +39,7 @@ class Login extends Component {
         
         } else{
           localStorage.setItem('Token', response.token);
-          // localStorage.setItem('Username', response.username);
-          this.state.username = response.username
+          this.setState({username: response.username})
         }        
       })
       .then(
@@ -49,18 +48,15 @@ class Login extends Component {
           password: ""
         })
       )
-
-    
       .catch( error => {
-        console.log(error);
         localStorage.clear()
       })
-
-      
-
   }
 
   render() {
+
+    const username = this.state.username
+    console.log(username)
     return (
       <div className="row dark-background form-div">
         <div className="col-sm-3"></div>
