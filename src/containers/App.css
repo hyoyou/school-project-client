@@ -1,8 +1,8 @@
-// button color - #ffd16d
+/* button color - #ffd16d */
 
 .school-logo {
   padding: 15px;
-  width: 17%;
+  width: 20%;
 }
 
 .dark-background {
@@ -10,7 +10,8 @@
 }
 
 .header {
-  border-bottom: 5px solid #000;
+  border-bottom: 3px solid #000;
+  height: 110px;
 }
 
 .form-styling {
