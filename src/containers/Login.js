@@ -7,8 +7,7 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: "",
-      username: ""
+      password: ""
     }
   }
 
@@ -39,14 +38,15 @@ class Login extends Component {
         
         } else{
           localStorage.setItem('Token', response.token);
-          this.setState({username: response.username})
+          localStorage.setItem('Username', response.username);
         }        
       })
       .then(
         this.setState({
           email: "",
           password: ""
-        })
+        }),
+        this.props.history.push("/")
       )
       .catch( error => {
         localStorage.clear()

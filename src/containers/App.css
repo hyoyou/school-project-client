@@ -2,7 +2,7 @@
 
 .school-logo {
   padding: 15px;
-  width: 20%;
+  width: 200px;
 }
 
 .dark-background {
@@ -11,7 +11,22 @@
 
 .header {
   border-bottom: 3px solid #000;
-  height: 110px;
+}
+
+.header-links{
+  margin-top: 33px;
+}
+
+.header-links a{
+  margin: 0px 7px;
+  font-size: 1.1em;
+}
+
+
+.header-links span {
+  background-color: #000;
+  color: rgba(0, 0, 0, 0);
+  font-size: 1.1em;
 }
 
 .form-styling {
@@ -31,3 +46,16 @@
   margin: 15px 0;
   background-color: #ffd16d;
 }
+
+.home-checkin-div {
+  height: 200px;
+  border-bottom: 3px solid #000;
+}
+
+.home-checkin-div h1 {
+  text-align: center;
+  color: rgb(226, 226, 226);
+  padding: 20px 0px;
+  font-size: 2em;
+}
+
