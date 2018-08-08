@@ -9,17 +9,11 @@ class Leaderboard extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetch('http://localhost:3000/api/leaderboards')
       .then(response => response.json())
-      .then(data => {
-        debugger
-        this.setState(data)
-      });
-
+      .then(data => this.setState(data));
     }
-
-
 
   render() {
       return <div>LeaderBoard</div>
