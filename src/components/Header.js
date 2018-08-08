@@ -11,7 +11,7 @@ const Header = () => {
       <div className="col-md-4 header-links">
         <Link to="/login">Profile</Link>
         <span>|</span>
-        <Link to="/login">Locations</Link>
+        <Link to="/locations">Locations</Link>
         <span>|</span>
         <Link to="/leaderboard">Leaderboard</Link>
         <span>|</span>
