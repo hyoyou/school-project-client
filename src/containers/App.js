@@ -5,6 +5,7 @@ import './App.css';
 import Header from '../components/Header';
 import Login from '../containers/Login';
 import Home from '../components/Home';
+import Leaderboard from '../containers/Leaderboard';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Header />
           <Route path="/" component={Home} />
           <Route path="/login" component={Login} />
+          <Route path="/leaderboards" component={Leaderboard} />
         </div>
       </Router>
     );
