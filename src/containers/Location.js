@@ -19,10 +19,9 @@ export default class Location extends Component {
 
     filter = (event) => {
         let query = event.target.value;
-        let allLocations = this.state.allLocations;
+        let { allLocations } = this.state;
         let filteredLocations = [];
 
-        // Matcher function: Loops through markers and checks for matches in lower-cased strings at any index
         allLocations.forEach(function(location) {
             if (location.region.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
                 filteredLocations.push(location);
