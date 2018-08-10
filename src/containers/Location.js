@@ -1,62 +1,53 @@
 import React, { Component } from 'react';
-import RegionDropdown from '../components/RegionDropdown';
-import CityDropdown from '../components/CityDropdown';
-import AddressDropdown from '../components/AddressDropdown';
-import * as ReactBootstrap from 'react-bootstrap';
 
 export default class Location extends Component {
     state = { 
-        locations: [],
-        uniqueRegions: [],
-        uniqueCities: [],
-        uniqueAddresses: [],
-        selectedRegion: '',
-        selectedCity: '',
-        selectedAddress: ''
+        allLocations: [],
+        filteredLocations: []
     }
 
     componentDidMount() {
         fetch('http://localhost:3001/api/locations')
             .then(response => response.json())
             .then(locations => {
-                this.setState({ locations })
-                let regions = locations.map(location => location.region)
-                let uniqueRegions = regions.filter((region, index, self) => self.indexOf(region) === index)
-                this.setState({ uniqueRegions })
+                this.setState({ 
+                    allLocations: locations,
+                    filteredLocations: locations
+                })
             });
+    }
+
+    filter = (event) => {
+        let query = event.target.value;
+        let allLocations = this.state.allLocations;
+        let filteredLocations = [];
+
+        // Matcher function: Loops through markers and checks for matches in lower-cased strings at any index
+        allLocations.forEach(function(location) {
+            if (location.region.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+                filteredLocations.push(location);
+            }
+        })
+
+        this.setState({ filteredLocations });
     }
 
     render() {
         return (
             <div className="container">
-                <div className="row" style={{"padding-top": "2%"}}>
-                    {/* <RegionDropdown title="Select Region" regions={location.region} onSelect={this.updateRegion} />
-                    <CityDropdown title="Select City" cities={location.city} onSelect={this.updateCity} />
-                    <AddressDropdown title="Begin Typing Address/Name of Building" addresses={location.address} onSelect={this.updateAddress} /> */}
-                    <ReactBootstrap.DropdownButton 
-                        title="Region"
-                    >
-                        {this.state.uniqueRegions.map((region, i) => 
-                        <ReactBootstrap.MenuItem key={i} eventKey={i}>{region}</ReactBootstrap.MenuItem>
-                        )}
-                    </ReactBootstrap.DropdownButton>
-                    <ReactBootstrap.DropdownButton 
-                        title="City"
-                    >
-                        <ReactBootstrap.MenuItem eventKey="1">Action</ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem eventKey="2">Another action</ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem eventKey="3" active>Active Item</ReactBootstrap.MenuItem>
-                    </ReactBootstrap.DropdownButton>
+                <div className="row" style={{"paddingTop": "2%"}}>
+                    <label htmlFor="search"><strong>Region:</strong></label>
+                    <input id="search" type="text" placeholder="Search by Region" style={{"color": "black"}} onChange={this.filter} />
                 </div>
-                <div className="row" style={{"padding-top": "5%"}}>
-                    {this.state.locations.map(location => {
+                <div className="row" style={{"paddingTop": "5%"}}>
+                    {this.state.filteredLocations.map(location => {
                         return (
-                            <div key={location.id}>
-                                {/* Group by regions, click to open cities + locations, perhaps a dropdown?? */}
+                            <div className="col-sm-4" style={{"height": "300px"}} key={location.id}>
                                 <p>Region: {location.region}</p>
                                 <p>City: {location.city}</p>
                                 <p>Name: {location.name}</p>
                                 <p>Address: {location.address}</p>
+                                <button>Select</button>
                                 <hr />
                             </div>
                         )
