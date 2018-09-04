@@ -6,6 +6,8 @@ import Header from '../components/Header';
 import Login from '../containers/Login';
 import Signup from '../containers/Signup';
 import Home from '../components/Home';
+import Leaderboard from '../containers/Leaderboard';
+import Location from '../containers/Location';
 
 class App extends Component {
   render() {
@@ -15,7 +17,8 @@ class App extends Component {
           <Header />
           <Route path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
+          <Route exact path="/locations" component={Location} />
+          <Route exact path="/leaderboards" component={Leaderboard} />
         </div>
       </Router>
     );
