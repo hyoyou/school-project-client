@@ -18,15 +18,10 @@
 }
 
 .header-links a{
+  color: #fff;
   margin: 0px 7px;
   font-size: 1.1em;
-}
-
-
-.header-links span {
-  background-color: #000;
-  color: rgba(0, 0, 0, 0);
-  font-size: 1.1em;
+  font-weight: 100;
 }
 
 .form-styling {
@@ -54,7 +49,7 @@
 
 .home-checkin-div h1 {
   text-align: center;
-  color: rgb(226, 226, 226);
+  color: #fff;
   padding: 20px 0px;
   font-size: 2em;
 }

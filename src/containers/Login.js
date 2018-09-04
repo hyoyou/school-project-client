@@ -21,7 +21,7 @@ class Login extends Component {
     
     event.preventDefault();
 
-    return fetch(`${API_URL}/login`, {
+    return fetch(`${API_URL}/sessions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ class Login extends Component {
   render() {
 
     const username = this.state.username
-    console.log(username)
+    
     return (
       <div className="row dark-background form-div">
         <div className="col-sm-3"></div>
