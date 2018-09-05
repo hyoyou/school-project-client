@@ -9,7 +9,10 @@ class Signup extends Component {
         this.state = {
             username: "",
             email: "",
-            password: ""
+            password: "",
+            passwordError: "",
+            passwordConfirmation: "",
+            passwordConfirmationError: ""
         }
 
     }
@@ -20,20 +23,60 @@ class Signup extends Component {
         })
     }
 
+    validate = () => {
+      let isError = false;
+      const errors = {
+        passwordError: "",
+        passwordConfirmationError: ""
+      }
+
+      if(this.state.password.length < 6) {
+        isError = true
+        errors.passwordError = "Must be 6 characters long"
+      }
+
+      if(this.state.passwordConfirmation !== this.state.password) {
+        isError = true
+        errors.passwordConfirmationError = "Password doesn't match"
+      }
+
+      
+      this.setState({
+        ...this.state,
+        ...errors
+      })
+      
+      return isError
+    }
+
+    // validateBorder = () => {
+    //   var input = document.getElementsByTagName("input")
+      
+    //   input.forEach(inp => {
+    //     debugger
+    //     inp.outerHTML.includes("outertext") ? inp.addClass("redBorder") : inp.removeClass("redBorder")
+    //   })
+    // }
+
     handleSubmit = event => {
-        event.preventDefault();
+      event.preventDefault();
+      //validate form fields
+      //this.validateBorder();
+      const err = this.validate()
+
+      if (!err) {
 
         return fetch(`${API_URL}/users`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
             
             body: JSON.stringify({user: this.state})
           })
             .then(res => res.json())
             .then((response) => {
-              debugger
+              
               if (response.errors) {
                 
                 throw Error(response.errors);
@@ -53,7 +96,8 @@ class Signup extends Component {
             .catch( error => {
               localStorage.clear()
             })
-        }
+      }
+    }
           
   render() {
     return(
@@ -62,7 +106,7 @@ class Signup extends Component {
 
         <div className="col-sm-6 form-styling ">
 
-          <h1>Please Signup to get started</h1>
+          <h1 className="form-div__title">Please Signup to get started</h1>
 
           <form onSubmit={(event) => this.handleSubmit(event)}>
           <div className="form-group">
@@ -74,15 +118,17 @@ class Signup extends Component {
               type="text" placeholder="please enter your username"
               onChange={(event) => this.onInput(event)}
               value={this.state.username}
+              required
             />
               
             <label>Email</label>
             <input 
               name="email"
               className="form-control" 
-              type="text" placeholder="please enter your email"
+              type="email" placeholder="please enter your email"
               onChange={(event) => this.onInput(event)}
               value={this.state.email}
+              required
             />
 
             <label>Password</label>
@@ -92,8 +138,22 @@ class Signup extends Component {
               type="password" placeholder="please enter your password"
               onChange={(event) => this.onInput(event)}
               value={this.state.password}
+              errortext={this.state.passwordError}
+              required
             />
+            <span className="form-div__error">{this.state.passwordError}</span>
 
+            <label>Confirm Password</label>
+            <input 
+              name="passwordConfirmation"
+              className="form-control" 
+              type="password" placeholder="please confirm your password"
+              onChange={(event) => this.onInput(event)}
+              value={this.state.passwordConfirmation}
+              outertext={this.state.passwordConfirmationError}
+              required
+            />
+            <span className="form-div__error">{this.state.passwordConfirmationError}</span>
               <button type="submit" className="btn submit-button">Submit</button>
             </div>
 

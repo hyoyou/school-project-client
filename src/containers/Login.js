@@ -61,7 +61,7 @@ class Login extends Component {
       <div className="row dark-background form-div">
         <div className="col-sm-3"></div>
         <div className="col-sm-6 form-styling ">
-          <h1>Please login to get started</h1>
+          <h1 className="form-div__title">Please login to get started</h1>
           <form onSubmit={(event) => this.handleSubmit(event)}>
           <div className="form-group">
               

@@ -54,7 +54,15 @@
   font-size: 2em;
 }
 
-
 div {
   color: white;
+}
+
+.form-div__title, p {
+  color: #000;
+}
+
+.form-div__error {
+  color: #c0392b;
+  display: block;
 }
