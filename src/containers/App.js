@@ -11,6 +11,7 @@ import Location from '../containers/Location';
 
 class App extends Component {
   render() {
+    console.log(this.props.store)
     return (
       <Router>
         <div>
