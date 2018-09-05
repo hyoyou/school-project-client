@@ -70,9 +70,10 @@ class Login extends Component {
               
               name="email"
               className="form-control" 
-              type="text" placeholder="please enter your email"
+              type="email" placeholder="please enter your email"
               onChange={(event) => this.onInput(event)}
               value={this.state.email}
+              required
               />
 
               <label>Password</label>
@@ -82,6 +83,7 @@ class Login extends Component {
               type="password" placeholder="please enter your password"
               onChange={(event) => this.onInput(event)}
               value={this.state.password}
+              required
               />
 
               <button type="submit" className="btn submit-button">Submit</button>

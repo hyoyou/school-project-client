@@ -49,19 +49,10 @@ class Signup extends Component {
       return isError
     }
 
-    // validateBorder = () => {
-    //   var input = document.getElementsByTagName("input")
-      
-    //   input.forEach(inp => {
-    //     debugger
-    //     inp.outerHTML.includes("outertext") ? inp.addClass("redBorder") : inp.removeClass("redBorder")
-    //   })
-    // }
-
     handleSubmit = event => {
       event.preventDefault();
       //validate form fields
-      //this.validateBorder();
+    
       const err = this.validate()
 
       if (!err) {
