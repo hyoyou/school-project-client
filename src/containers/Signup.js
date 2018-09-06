@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-const API_URL = "http://192.168.1.190:3001/api"
+import { signup } from '../actions/authActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class Signup extends Component {
 
     constructor(props) {
-        super();
+        super(props);
 
         this.state = {
             username: "",
@@ -56,37 +58,7 @@ class Signup extends Component {
       const err = this.validate()
 
       if (!err) {
-
-        return fetch(`${API_URL}/users`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-            
-            body: JSON.stringify({user: this.state})
-          })
-            .then(res => res.json())
-            .then((response) => {
-              
-              if (response.errors) {
-                
-                throw Error(response.errors);
-              
-              } else{
-                localStorage.setItem('Token', response.token);
-                localStorage.setItem('Username', response.username);
-              }        
-            })
-            .then(
-              this.setState({
-                email: "",
-                password: ""
-              }),
-              this.props.history.push("/")
-            )
-            .catch( error => {
-              localStorage.clear()
-            })
+        this.props.signup(this.state, this.props.history)
       }
     }
           
@@ -102,30 +74,30 @@ class Signup extends Component {
           <form onSubmit={(event) => this.handleSubmit(event)}>
           <div className="form-group">
 
-            <label>Username</label>
+            <label className="form-group__label">Username</label>
             <input 
               name="username"
-              className="form-control" 
+              className="form-control form-group__input" 
               type="text" placeholder="please enter your username"
               onChange={(event) => this.onInput(event)}
               value={this.state.username}
               required
             />
               
-            <label>Email</label>
+            <label className="form-group__label">Email</label>
             <input 
               name="email"
-              className="form-control" 
+              className="form-control form-group__input" 
               type="email" placeholder="please enter your email"
               onChange={(event) => this.onInput(event)}
               value={this.state.email}
               required
             />
 
-            <label>Password</label>
+            <label className="form-group__label">Password</label>
             <input 
               name="password"
-              className="form-control" 
+              className="form-control form-group__input" 
               type="password" placeholder="please enter your password"
               onChange={(event) => this.onInput(event)}
               value={this.state.password}
@@ -134,10 +106,10 @@ class Signup extends Component {
             />
             <span className="form-div__error">{this.state.passwordError}</span>
 
-            <label>Confirm Password</label>
+            <label className="form-group__label">Confirm Password</label>
             <input 
               name="passwordConfirmation"
-              className="form-control" 
+              className="form-control form-group__input" 
               type="password" placeholder="please confirm your password"
               onChange={(event) => this.onInput(event)}
               value={this.state.passwordConfirmation}
@@ -159,4 +131,10 @@ class Signup extends Component {
 
 }
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+      signup:  signup,
+  }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(Signup);

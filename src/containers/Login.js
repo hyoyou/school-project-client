@@ -54,8 +54,6 @@ class Login extends Component {
   }
 
   render() {
-
-    const username = this.state.username
     
     return (
       <div className="row dark-background form-div">
@@ -65,21 +63,21 @@ class Login extends Component {
           <form onSubmit={(event) => this.handleSubmit(event)}>
           <div className="form-group">
               
-              <label>Email</label>
+              <label className="form-group__label">Email</label>
               <input 
               
               name="email"
-              className="form-control" 
+              className="form-control form-group__input" 
               type="email" placeholder="please enter your email"
               onChange={(event) => this.onInput(event)}
               value={this.state.email}
               required
               />
 
-              <label>Password</label>
+              <label className="form-group__label">Password</label>
               <input 
               name="password"
-              className="form-control" 
+              className="form-control form-group__input" 
               type="password" placeholder="please enter your password"
               onChange={(event) => this.onInput(event)}
               value={this.state.password}

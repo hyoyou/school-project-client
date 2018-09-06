@@ -54,12 +54,16 @@
   font-size: 2em;
 }
 
-div {
+div{
   color: white;
 }
 
-.form-div__title, p {
+.form-div__title, .form-group__label{
   color: #000;
+}
+
+.form-group__input {
+  margin-bottom: 25px;
 }
 
 .form-div__error {
