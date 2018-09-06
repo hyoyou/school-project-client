@@ -24,6 +24,22 @@
   font-weight: 100;
 }
 
+.logout-button {
+  background-color: transparent !important;
+  border: none;
+}
+
+.home-checkin-div__btn {
+  display: block;
+  max-width: 200px;
+  text-align: center;
+  border: 3px solid #000;
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
+  padding: 10px;
+}
+
 .form-styling {
   background-color: #fff;
 }
@@ -75,3 +91,4 @@ div{
   color: #c0392b;
   display: block;
 }
+

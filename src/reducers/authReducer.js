@@ -10,7 +10,8 @@ export default (state = {
       return {
         ...state,
         authenticated: true,
-        current_user: action.user
+        current_user: action.user,
+        errors: []
       }
 
     case 'SIGNUP':
@@ -18,6 +19,7 @@ export default (state = {
         ...state,
         authenticated: true,
         current_user: action.user,
+        errors: []
       }
 
       
@@ -29,7 +31,6 @@ export default (state = {
       }
       
       case 'AUTHENTICATION_FAILURE':
-        debugger
         return {
           
           ...state,
@@ -42,5 +43,4 @@ export default (state = {
         return  state
         
     }
-  
 }

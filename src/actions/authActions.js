@@ -17,7 +17,6 @@ const loginSuccess = (user) => {
 }
 
 const authFailure = (errors) => {
-  debugger
   return {
     type: 'AUTHENTICATION_FAILURE',
     errors: errors.message
@@ -81,10 +80,16 @@ export const login = (user, history) => {
           }        
         })
         .catch( errors => {
-          debugger
           localStorage.clear()
           dispatch(authFailure(errors))
         })
   }
       
+}
+
+export const logout = () => {
+  return dispatch => {
+      localStorage.clear();
+      return dispatch({type: 'LOGGEDOUT'});
+  }
 }

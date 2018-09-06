@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import logo from '../containers/schoolprojectlogo.svg'
+import Logout from '../containers/Logout'
 
 const Header = (props) => {
   const current_user = props.username
@@ -11,18 +12,20 @@ const Header = (props) => {
       <div className="col-sm-4">
         <img className="school-logo" src={logo} alt="logo"/>
       </div>
-      <div className="col-md-4 header-links">
+      <div className="col-sm-8 header-links">
 
         {current_user ? 
           <div>
 
-            <Link to="/login">Profile</Link>
+            <Link to="/profile">Profile</Link>
             <span>|</span>
             <Link to="/locations">Locations</Link>
             <span>|</span>
             <Link to="/leaderboard">Leaderboard</Link>
             <span>|</span>
             <Link to="/">Home</Link>
+            <span>|</span>
+            <Route path="/" component={Logout}/>
 
           </div>
           :
@@ -33,7 +36,6 @@ const Header = (props) => {
           </div>
         }
       </div>
-      <div className="col-sm-4"></div>
     </div>
   )
 }
