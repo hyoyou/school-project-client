@@ -1,7 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
-const Home= () => {
-  const username = localStorage.Username
+const Home= (props) => {
+  const username = props.username
   return(
     <div className="row">
       <div className="col-sm-12 home-checkin-div">
@@ -12,4 +13,13 @@ const Home= () => {
   )
 }
 
-export default Home
+//export default Home
+
+const mapStateToProps = (state) => {
+
+  return {
+    username: state.auth.current_user.username
+  }
+}
+
+export default connect(mapStateToProps, null)(Home);

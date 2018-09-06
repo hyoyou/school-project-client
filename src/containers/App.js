@@ -11,16 +11,18 @@ import Location from '../containers/Location';
 
 class App extends Component {
   render() {
-    console.log(this.props.store)
+    
     return (
       <Router>
         <div>
+
           <Header />
           <Route path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/locations" component={Location} />
           <Route exact path="/leaderboards" component={Leaderboard} />
+     
         </div>
       </Router>
     );
@@ -28,3 +30,4 @@ class App extends Component {
 }
 
 export default App;
+

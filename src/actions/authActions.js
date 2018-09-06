@@ -17,7 +17,7 @@ const loginSuccess = (user) => {
 }
 
 const authFailure = (errors) => {
-  
+  debugger
   return {
     type: 'AUTHENTICATION_FAILURE',
     errors: errors.message
@@ -37,7 +37,7 @@ export const signup = (user, history) => {
       })
         .then(res => res.json())
         .then((response) => {
-          
+        
           if (response.errors) {
             
             throw Error(response.errors);
@@ -45,7 +45,7 @@ export const signup = (user, history) => {
           } else{
             localStorage.setItem('Token', response.token);
             history.push("/")
-            dispatch(signupSuccess(response))
+            dispatch(signupSuccess(response.user))
           }        
         })
         .catch( errors => {
@@ -77,10 +77,11 @@ export const login = (user, history) => {
           } else{
             localStorage.setItem('Token', response.token);
             history.push("/")
-            dispatch(loginSuccess(response))
+            dispatch(loginSuccess(response.user))
           }        
         })
         .catch( errors => {
+          debugger
           localStorage.clear()
           dispatch(authFailure(errors))
         })

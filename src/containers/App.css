@@ -62,6 +62,11 @@ div{
   color: #000;
 }
 
+.login-section__error-div {
+  color: #c0392b;
+  padding: 20px 0px;
+}
+
 .form-group__input {
   margin-bottom: 25px;
 }
