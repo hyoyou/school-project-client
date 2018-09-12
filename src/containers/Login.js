@@ -41,7 +41,7 @@ class Login extends Component {
           
           <div className="col-sm-6 form-styling ">
 
-            <div className="login-section__error-div col-sm-12"><p>{errors}</p></div>
+            <div className="login-section__error-div col-sm-12"><span>{errors}</span></div>
             <h1 className="form-div__title">Please login to get started</h1>
 
             <form onSubmit={(event) => this.handleSubmit(event)}>

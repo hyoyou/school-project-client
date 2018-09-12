@@ -42,7 +42,6 @@ class Signup extends Component {
         errors.passwordConfirmationError = "Password doesn't match"
       }
 
-      
       this.setState({
         ...this.state,
         ...errors
