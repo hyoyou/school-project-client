@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Home= (props) => {
-  const username = props.username
+  const username = props.username ? props.username : ""
   return(
     <div className="row">
       <div className="col-sm-12 home-checkin-div">
@@ -26,8 +26,9 @@ const Home= (props) => {
 //export default Home
 
 const mapStateToProps = (state) => {
+  const username = state.auth.current_user ? state.auth.current_user.username : ""
   return {
-    username: state.auth.current_user.username
+    username: username
   }
 }
 

@@ -31,7 +31,7 @@ class Login extends Component {
 
   render() {
     const errors = this.props.errors
-    console.log(errors)
+    
     return (
       <section className="login-section">
         <div className="row">
@@ -42,7 +42,7 @@ class Login extends Component {
           <div className="col-sm-6 form-styling ">
 
             <div className="login-section__error-div col-sm-12"><span>{errors}</span></div>
-            <h1 className="form-div__title">Please login to get started</h1>
+            <h1 className="login-section__title">Please login to get started</h1>
 
             <form onSubmit={(event) => this.handleSubmit(event)}>
             <div className="form-group">
@@ -71,7 +71,7 @@ class Login extends Component {
                 <button type="submit" className="btn submit-button">Submit</button>
               </div>
             </form>
-          
+            <div><span className="login-section__span">What you have not registered yet? please </span><a className="login-section__links" href="/signup">Signup</a></div>
           </div>
           <div className="col-sm-3"></div>
         </div>

@@ -75,8 +75,18 @@ div{
   color: white;
 }
 
-.form-div__title, .form-group__label{
+.form-div__title, .form-group__label, .login-section__span, .login-section__title{
   color: #000;
+}
+
+.login-section__links {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.login-section__links:hover {
+  text-decoration: none;
+  color: #252729;
 }
 
 .login-section__error-div {
