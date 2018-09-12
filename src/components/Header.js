@@ -13,8 +13,9 @@ const Header = (props) => {
         <img className="school-logo" src={logo} alt="logo"/>
       </div>
       <div className="col-sm-8 header-links">
-
+          
         {current_user ? 
+          
           <div>
 
             <Link to="/profile">Profile</Link>
@@ -23,9 +24,10 @@ const Header = (props) => {
             <span>|</span>
             <Link to="/leaderboard">Leaderboard</Link>
             <span>|</span>
-            <Link to="/">Home</Link>
             <span>|</span>
             <Route path="/" component={Logout}/>
+            <span>|</span>
+            <Link to="/">Home</Link>
 
           </div>
           :
@@ -33,6 +35,8 @@ const Header = (props) => {
             <Link to="/login">Login</Link>
             <span>|</span>
             <Link to="/signup">Signup</Link>
+            <span>|</span>
+            <Link to="/">Home</Link>
           </div>
         }
       </div>
@@ -41,9 +45,9 @@ const Header = (props) => {
 }
 
 const mapStateToProps = (state) => {
-
+  const username = state.auth.current_user ? state.auth.current_user.username : ""
   return {
-    username: state.auth.current_user.username
+    username: username
   }
 
 }

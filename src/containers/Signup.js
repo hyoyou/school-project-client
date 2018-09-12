@@ -42,7 +42,6 @@ class Signup extends Component {
         errors.passwordConfirmationError = "Password doesn't match"
       }
 
-      
       this.setState({
         ...this.state,
         ...errors
@@ -63,6 +62,7 @@ class Signup extends Component {
     }
           
   render() {
+    console.log("signup errors", this.props.errors)
     return(
       <section className="row dark-background form-div">
         <div className="col-sm-3"></div>
@@ -131,10 +131,16 @@ class Signup extends Component {
 
 }
 
+const mapStateToProps = ({auth}) => {
+  return {
+    errors: auth.errors
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
       signup:  signup,
   }, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect( mapStateToProps, mapDispatchToProps)(Signup);

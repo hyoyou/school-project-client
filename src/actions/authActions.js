@@ -48,18 +48,18 @@ export const signup = (user, history) => {
       })
         .then(res => res.json())
         .then((response) => {
-        
-          if (response.errors) {
+          if (response.message) {
             
-            throw Error(response.errors);
+            throw Error({response});
           
           } else{
             localStorage.setItem('Token', response.token);
-            history.push("/")
             dispatch(signupSuccess(response.user))
+            history.push("/")
           }        
         })
         .catch( errors => {
+          debugger
           localStorage.clear()
           dispatch(authFailure(errors))
         })
@@ -79,7 +79,7 @@ export const login = (user, history) => {
       })
         .then(res => res.json())
         .then((response) => {
-          
+        
           if (response.errors) {
             
             throw Error(response.errors);
@@ -91,6 +91,7 @@ export const login = (user, history) => {
           }        
         })
         .catch( errors => {
+        
           localStorage.clear()
           dispatch(authFailure(errors))
         })
@@ -98,9 +99,10 @@ export const login = (user, history) => {
       
 }
 
-export const logout = () => {
+export const logout = (history) => {
   return dispatch => {
       localStorage.clear();
+      history.push("/")
       return dispatch({type: 'LOGGEDOUT'});
   }
 }
