@@ -23,24 +23,37 @@ export default (state = {
       }
 
       
-      case 'LOGGEDOUT':
+    case 'LOGGEDOUT':
       return {
         ...state,
         authenticated: false,
         current_user: {},
       }
       
-      case 'AUTHENTICATION_FAILURE':
-        return {
-          
-          ...state,
-          authenticated: false,
-          current_user: {},
-          errors: action.errors
-        }
-      
-      default:
-        return  state
+    case 'AUTHENTICATION_FAILURE':
+      return {
+        ...state,
+        authenticated: false,
+        current_user: {},
+        errors: action.errors
+      }
+    
+    case 'LOAD_USER_SUCCESS':
+      return {
+        ...state,
+        authenticated: true,
+        current_user: action.payload
+      }
+
+    case 'UPDATE_USER_SUCCESS':
+      return {
+        ...state,
+        authenticated: true,
+        current_user: action.payload
+      }
+
+    default:
+      return  state
         
     }
 }

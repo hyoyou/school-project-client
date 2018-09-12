@@ -1,12 +1,11 @@
-const API_URL = "http://192.168.1.190:3001/api"
+// const API_URL = "http://192.168.1.190:3001/api"
+const API_URL = "http://localhost:3001/api"
 
 const signupSuccess = (user) => {
- 
   return {
     type: 'SIGNUP',
     user: user
   }
-
 }
 
 const loginSuccess = (user) => {
@@ -23,8 +22,21 @@ const authFailure = (errors) => {
   }
 }
 
+const loadUserSuccess = (user) => {
+  return {
+    type: 'LOAD_USER_SUCCESS',
+    payload: user
+  }
+}
+
+const updateUserSuccess = (user) => {
+  return {
+    type: 'UPDATE_USER_SUCCESS',
+    payload: user
+  }
+}
+
 export const signup = (user, history) => {
-  
   return dispatch => {
     return fetch(`${API_URL}/users`, {
       method: 'POST',
@@ -56,7 +68,6 @@ export const signup = (user, history) => {
 }
 
 export const login = (user, history) => {
-  
   return dispatch => {
     return fetch(`${API_URL}/sessions`, {
       method: 'POST',
@@ -91,5 +102,54 @@ export const logout = () => {
   return dispatch => {
       localStorage.clear();
       return dispatch({type: 'LOGGEDOUT'});
+  }
+}
+
+export const findUser = (token) => {
+  return dispatch => {
+    return fetch('http://localhost:3001/api/find', {
+      method: 'POST',
+      headers: {
+        'Authorization': token,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ token })
+    })
+    .then(response => response.json())
+    .then(result => {
+      dispatch(loadUser(result.user.user.id))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+export const loadUser = (userId) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/users/${userId}`, {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(result => {
+      dispatch(loadUserSuccess(result))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+
+export const updateUser = (user) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/users/${user.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ user })
+    })
+    .then(response => response.json())
+    .then(result => {
+      dispatch(updateUserSuccess(result))
+    })
+    .catch(error => console.log(error))
   }
 }

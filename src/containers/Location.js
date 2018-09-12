@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { findUser, updateUser } from '../actions/authActions';
+import { connect } from 'react-redux';
 
-export default class Location extends Component {
+class Location extends Component {
     state = { 
         allLocations: [],
-        filteredLocations: []
+        filteredLocations: [],
+        user: this.props.user
     }
 
     componentDidMount() {
@@ -15,6 +18,15 @@ export default class Location extends Component {
                     filteredLocations: locations
                 })
             });
+        
+        const token = localStorage.getItem('Token');
+        if (token) {
+            this.props.findUser(token);
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ user: nextProps.user })
     }
 
     filter = (event) => {
@@ -29,6 +41,10 @@ export default class Location extends Component {
         })
 
         this.setState({ filteredLocations });
+    }
+
+    handleClick = id => {
+        console.log(id);
     }
 
     render() {
@@ -46,7 +62,7 @@ export default class Location extends Component {
                                 <p>City: {location.city}</p>
                                 <p>Name: {location.name}</p>
                                 <p>Address: {location.address}</p>
-                                <button>Select</button>
+                                <button onClick={() => this.handleClick(location.id)}>Select</button>
                                 <hr />
                             </div>
                         )
@@ -56,3 +72,11 @@ export default class Location extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        user: state.current_user
+    }
+}
+
+export default connect(mapStateToProps, { findUser, updateUser })(Location);
