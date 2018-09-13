@@ -34,26 +34,28 @@ class Location extends Component {
         this.setState({ filteredLocations });
     }
 
+    // Selecting location adds location's id to user data in component state
     handleClick = locId => {
-        // let updatedLocations = this.state.user.user_locations_attributes.push(id);
+        const updatedLocations = this.state.user.user_locations_attributes.concat([{ location_attributes: {id: locId }}])
         // debugger
-        const updatedLocations = this.state.user.user_locations_attributes.map((location, locationId) => {
-            if (locId !== locationId) return location;
-            return { ...location, location_attributes: { id: locId } };
-        })
 
         this.setState({
             user: { ...this.state.user,
                 user_locations_attributes: updatedLocations
             }
         })
-
+    }
+    
+    // Extract out later to separate confirmation pop up
+    handleSubmit = () => {
+        // console.log(this.state.user)
         this.props.updateUser(this.state.user);
     }
-
+ 
     render() {
         return (
             <div className="container">
+                <button onClick={this.handleSubmit}>Check In</button>
                 <div className="row" style={{"paddingTop": "2%"}}>
                     <label htmlFor="search"><strong>Region:</strong></label>
                     <input id="search" type="text" placeholder="Search by Region" style={{"color": "black"}} onChange={this.filter} />
