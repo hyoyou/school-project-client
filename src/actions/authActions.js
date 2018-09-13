@@ -69,7 +69,7 @@ export const signup = (user, history) => {
 
 export const login = (user, history) => {
   return dispatch => {
-    return fetch(`${API_URL}/sessions`, {
+    return fetch(`${API_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

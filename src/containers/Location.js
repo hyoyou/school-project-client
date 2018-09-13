@@ -25,10 +25,6 @@ class Location extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ user: nextProps.user })
-    }
-
     filter = (event) => {
         let query = event.target.value;
         let { allLocations } = this.state;
@@ -75,7 +71,7 @@ class Location extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.current_user
+        user: state.auth.current_user
     }
 }
 
