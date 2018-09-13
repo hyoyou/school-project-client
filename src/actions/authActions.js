@@ -109,7 +109,7 @@ export const logout = (history) => {
 
 export const loadUser = (userId) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${userId}`, {
+    return fetch(`${API_URL}/users/${userId}`, {
       method: 'GET'
     })
     .then(response => response.json())
@@ -124,7 +124,7 @@ export const loadUser = (userId) => {
 export const updateUser = (user) => {
   console.log(user)
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${user.id}`, {
+    return fetch(`${API_URL}/users/${user.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
