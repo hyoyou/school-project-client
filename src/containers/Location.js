@@ -26,7 +26,7 @@ class Location extends Component {
         let filteredLocations = [];
 
         allLocations.forEach(function(location) {
-            if (location.region.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+            if (location.region.toLowerCase().startsWith(query.toLowerCase())) {
                 filteredLocations.push(location);
             }
         })
