@@ -32,6 +32,7 @@
 .welcome-section {
   height: 160px;
   border-bottom: 3px solid #000;
+  
 }
 
 .welcome-section__btn {
@@ -46,10 +47,20 @@
 }
 .welcome-section__title {
   font-size: 1.5em;
+  text-align: center;
+  padding: 20px 0px;
 }
 .welcome-section--username {
   color: #ffd16d;
 }
+
+.welcome-section__authPannel {
+  background-color: #fff;
+  width: 30%;
+  margin: 5% 35%;
+  padding: 20px;
+}
+
 
 .form-styling {
   background-color: #fff;
@@ -70,12 +81,6 @@
   background-color: #ffd16d;
 }
 
-.home-checkin-div h1 {
-  text-align: center;
-  color: #fff;
-  padding: 20px 0px;
-  font-size: 2em;
-}
 
 div{
   color: white;

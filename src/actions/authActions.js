@@ -47,7 +47,7 @@ export const signup = (user, history) => {
           }        
         })
         .catch( errors => {
-          debugger
+          
           localStorage.clear()
           dispatch(authFailure(errors))
         })

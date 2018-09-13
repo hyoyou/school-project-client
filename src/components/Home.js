@@ -14,19 +14,32 @@ const Home= (props) => {
   capitalizeUsername(props.username) : ""
  
   return(
-    <div className="row">
-      <div className="col-sm-12 home-checkin-div">
-        {username ?
-        <div className="welcome-section row">
+    <section >
       
-          <h1 className="welcome-section__heading">Welcome <span className="welcome-section--username">{username}</span>, are you here?</h1>
+      <div className="welcome-section row">
+        {username ?
+
+        <div className="col-sm-12">
+      
+          <h1 className="welcome-section__title">Welcome <span className="welcome-section--username">{username}</span>, are you here?</h1>
           <button className="welcome-section__btn btn" onClick={this.handleClick}>Check in</button>
         
         </div>
         : 
-        <h1> Welcome! </h1>}
+        <h1 className="welcome-section__title"> Welcome! </h1>
+        
+      }
       </div>
-    </div>
+        <div className="row">
+
+          <div className="welcome-section__authPannel">
+            <a href="/login"  className="welcome-section__authPannel--btn">Login</a>
+            <a href="/login"  className="welcome-section__authPannel--btn">Signup</a>
+          </div>
+        
+        </div>
+
+    </section>
   )
 }
 
