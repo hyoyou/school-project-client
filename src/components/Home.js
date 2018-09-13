@@ -17,13 +17,11 @@ const Home= (props) => {
     <div className="row">
       <div className="col-sm-12 home-checkin-div">
         {username ?
-        <div>
-          <div>
-            <h1 className="home-heading">Welcome {username}, are you here?</h1>
-          </div>
-          <div>
-            <button className="home-checkin-div__btn btn" onClick={this.handleClick}>Check in</button>
-          </div>
+        <div className="welcome-section row">
+      
+          <h1 className="welcome-section__heading">Welcome <span className="welcome-section--username">{username}</span>, are you here?</h1>
+          <button className="welcome-section__btn btn" onClick={this.handleClick}>Check in</button>
+        
         </div>
         : 
         <h1> Welcome! </h1>}
