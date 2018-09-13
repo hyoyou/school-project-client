@@ -1,25 +1,45 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
+const capitalizeUsername = (username) => {
+  let capitalized = []
+  username.split(" ").forEach(name => {
+    capitalized.push(name.slice(0, 1).toUpperCase() + name.slice(1, name.length))
+  })
+  return capitalized.join(" ")
+}
 const Home= (props) => {
-  const username = props.username ? props.username : ""
+
+  const username = props.username ? 
+  capitalizeUsername(props.username) : ""
+ 
   return(
-    <div className="row">
-      <div className="col-sm-12 home-checkin-div">
+    <section >
+      
+      <div className="welcome-section row">
         {username ?
-        <div>
-          <div>
-            <h1 className="home-heading">Welcome {username}, Are you here?</h1>
-          </div>
-          <div>
-            <button className="home-checkin-div__btn btn" onClick={this.handleClick}>Check in</button>
-          </div>
+
+        <div className="col-sm-12">
+      
+          <h1 className="welcome-section__title">Welcome <span className="welcome-section--username">{username}</span>, are you here?</h1>
+          <button className="welcome-section__btn btn" onClick={this.handleClick}>Check in</button>
+        
         </div>
         : 
-        <h1> Welcome! </h1>}
+        <h1 className="welcome-section__title"> Welcome! </h1>
+        
+      }
       </div>
-    </div>
+        <div className="row">
+
+          <div className="welcome-section__authPannel">
+            <a href="/login"  className="welcome-section__authPannel--btn">Login</a>
+            <a href="/login"  className="welcome-section__authPannel--btn">Signup</a>
+          </div>
+        
+        </div>
+
+    </section>
   )
 }
 

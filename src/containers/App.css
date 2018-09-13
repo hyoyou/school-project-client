@@ -13,15 +13,25 @@
   border-bottom: 3px solid #000;
 }
 
-.header-links{
+.header-section{
   margin-top: 33px;
 }
 
-.header-links a{
+.header-section__links{
+  float: right;
+}
+
+.header-section__link {
   color: #fff;
   margin: 0px 7px;
   font-size: 1.1em;
   font-weight: 100;
+  
+}
+
+.header-section__link:hover {
+  color: #ffd16d;
+  text-decoration: none;
 }
 
 .logout-button {
@@ -29,7 +39,13 @@
   border: none;
 }
 
-.home-checkin-div__btn {
+.welcome-section {
+  height: 160px;
+  border-bottom: 3px solid #000;
+  
+}
+
+.welcome-section__btn {
   
   width: 16%;
   text-align: center; 
@@ -39,6 +55,23 @@
   padding: 10px;
   margin-left: 42%;
 }
+.welcome-section__title {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 20px 0px;
+}
+.welcome-section--username {
+  color: #ffd16d;
+}
+
+.welcome-section__authPannel {
+  background-color: #fff;
+  width: 40%;
+  height: 350px;
+  margin: 5% 30%;
+  padding: 20px;
+}
+
 
 .form-styling {
   background-color: #fff;
@@ -54,21 +87,9 @@
   padding: 15px 0;
 }
 
-.home-checkin-div {
-  height: 160px;
-  border-bottom: 3px solid #000;
-}
-
 .submit-button {
   margin: 15px 0;
   background-color: #ffd16d;
-}
-
-.home-checkin-div h1 {
-  text-align: center;
-  color: #fff;
-  padding: 20px 0px;
-  font-size: 2em;
 }
 
 div{
