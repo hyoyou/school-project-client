@@ -18,25 +18,25 @@ const Header = (props) => {
           
           <div>
 
+            <Link to="/">Home</Link>
+            <span>|</span>
             <Link to="/profile">Profile</Link>
             <span>|</span>
             <Link to="/locations">Locations</Link>
             <span>|</span>
             <Link to="/leaderboard">Leaderboard</Link>
             <span>|</span>
-            <span>|</span>
-            <Route path="/" component={Logout}/>
-            <span>|</span>
-            <Link to="/">Home</Link>
+            <Route className="logout-button" path="/" component={Logout}/>
 
           </div>
           :
           <div>
+            <Link to="/">Home</Link>
+            <span>|</span>
             <Link to="/login">Login</Link>
             <span>|</span>
             <Link to="/signup">Signup</Link>
-            <span>|</span>
-            <Link to="/">Home</Link>
+            
           </div>
         }
       </div>
