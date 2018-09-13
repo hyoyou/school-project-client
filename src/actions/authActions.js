@@ -69,7 +69,7 @@ export const signup = (user, history) => {
 
 export const login = (user, history) => {
   return dispatch => {
-    return fetch(`${API_URL}/login`, {
+    return fetch(`${API_URL}/sessions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -107,23 +107,23 @@ export const logout = (history) => {
   }
 }
 
-export const findUser = (token) => {
-  return dispatch => {
-    return fetch('http://localhost:3001/api/find', {
-      method: 'POST',
-      headers: {
-        'Authorization': token,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ token })
-    })
-    .then(response => response.json())
-    .then(result => {
-      dispatch(loadUser(result.user.user.id))
-    })
-    .catch(error => console.log(error))
-  }
-}
+// export const findUser = (token) => {
+//   return dispatch => {
+//     return fetch('http://localhost:3001/api/find', {
+//       method: 'POST',
+//       headers: {
+//         'Authorization': token,
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({ token })
+//     })
+//     .then(response => response.json())
+//     .then(result => {
+//       dispatch(loadUser(result.user.user.id))
+//     })
+//     .catch(error => console.log(error))
+//   }
+// }
 
 export const loadUser = (userId) => {
   return dispatch => {
@@ -140,18 +140,19 @@ export const loadUser = (userId) => {
 
 
 export const updateUser = (user) => {
+  console.log(user)
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${user.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ user })
-    })
-    .then(response => response.json())
-    .then(result => {
-      dispatch(updateUserSuccess(result))
-    })
-    .catch(error => console.log(error))
+    // return fetch(`http://localhost:3001/api/users/${user.id}`, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({ user })
+    // })
+    // .then(response => response.json())
+    // .then(result => {
+    //   dispatch(updateUserSuccess(result))
+    // })
+    // .catch(error => console.log(error))
   }
 }

@@ -20,9 +20,9 @@ class Location extends Component {
             });
         
         const token = localStorage.getItem('Token');
-        if (token) {
-            this.props.findUser(token);
-        }
+        // if (token) {
+        //     this.props.findUser(token);
+        // }
     }
 
     filter = (event) => {
@@ -40,7 +40,18 @@ class Location extends Component {
     }
 
     handleClick = id => {
-        console.log(id);
+        const updatedLocations = this.state.user.user_locations_attributes.map((location, locationId) => {
+            if (id !== locationId) return location;
+            return { ...location, location_attributes: { id: id } };
+        })
+    
+        this.setState({
+        user: { ...this.state.user,
+            user_cities_attributes: updatedLocations
+        }
+        })
+
+        this.props.updateUser(this.state.user);
     }
 
     render() {
@@ -75,4 +86,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { findUser, updateUser })(Location);
+export default connect(mapStateToProps, { updateUser })(Location);
+// findUser,
