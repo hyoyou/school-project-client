@@ -13,15 +13,25 @@
   border-bottom: 3px solid #000;
 }
 
-.header-links{
+.header-section{
   margin-top: 33px;
 }
 
-.header-links a{
+.header-section__links{
+  float: right;
+}
+
+.header-section__link {
   color: #fff;
   margin: 0px 7px;
   font-size: 1.1em;
   font-weight: 100;
+  
+}
+
+.header-section__link:hover {
+  color: #ffd16d;
+  text-decoration: none;
 }
 
 .logout-button {
@@ -56,8 +66,9 @@
 
 .welcome-section__authPannel {
   background-color: #fff;
-  width: 30%;
-  margin: 5% 35%;
+  width: 40%;
+  height: 350px;
+  margin: 5% 30%;
   padding: 20px;
 }
 

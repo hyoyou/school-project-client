@@ -12,30 +12,30 @@ const Header = (props) => {
       <div className="col-sm-4">
         <img className="school-logo" src={logo} alt="logo"/>
       </div>
-      <div className="col-sm-8 header-links">
+      <div className="col-sm-8 header-section">
           
         {current_user ? 
           
-          <div>
+          <div className="header-section__links">
 
-            <Link to="/">Home</Link>
+            <Link to="/" className="header-section__link">Home</Link>
             <span>|</span>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile" className="header-section__link">Profile</Link>
             <span>|</span>
-            <Link to="/locations">Locations</Link>
+            <Link to="/locations" className="header-section__link">Locations</Link>
             <span>|</span>
-            <Link to="/leaderboard">Leaderboard</Link>
+            <Link to="/leaderboard" className="header-section__link">Leaderboard</Link>
             <span>|</span>
             <Route className="logout-button" path="/" component={Logout}/>
 
           </div>
           :
-          <div>
-            <Link to="/">Home</Link>
+          <div className="header-section__links">
+            <Link to="/"  className="header-section__link">Home</Link>
             <span>|</span>
-            <Link to="/login">Login</Link>
+            <Link to="/login"  className="header-section__link">Login</Link>
             <span>|</span>
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup"  className="header-section__link">Signup</Link>
             
           </div>
         }
