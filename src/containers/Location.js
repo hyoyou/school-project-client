@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { findUser, updateUser } from '../actions/authActions';
+import { updateUser } from '../actions/authActions';
 import { connect } from 'react-redux';
 
 class Location extends Component {
@@ -18,11 +18,6 @@ class Location extends Component {
                     filteredLocations: locations
                 })
             });
-        
-        const token = localStorage.getItem('Token');
-        // if (token) {
-        //     this.props.findUser(token);
-        // }
     }
 
     filter = (event) => {
@@ -39,16 +34,18 @@ class Location extends Component {
         this.setState({ filteredLocations });
     }
 
-    handleClick = id => {
+    handleClick = locId => {
+        // let updatedLocations = this.state.user.user_locations_attributes.push(id);
+        // debugger
         const updatedLocations = this.state.user.user_locations_attributes.map((location, locationId) => {
-            if (id !== locationId) return location;
-            return { ...location, location_attributes: { id: id } };
+            if (locId !== locationId) return location;
+            return { ...location, location_attributes: { id: locId } };
         })
-    
+
         this.setState({
-        user: { ...this.state.user,
-            user_cities_attributes: updatedLocations
-        }
+            user: { ...this.state.user,
+                user_locations_attributes: updatedLocations
+            }
         })
 
         this.props.updateUser(this.state.user);
@@ -87,4 +84,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { updateUser })(Location);
-// findUser,
