@@ -1,5 +1,5 @@
-// const API_URL = "http://192.168.1.190:3001/api"
-const API_URL = "http://localhost:3001/api"
+const API_URL = "http://192.168.1.190:3001/api"
+//const API_URL = "http://localhost:3001/api"
 
 const signupSuccess = (user) => {
   return {
@@ -109,7 +109,7 @@ export const logout = (history) => {
 
 export const loadUser = (userId) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${userId}`, {
+    return fetch(`http://192.168.1.190:3001/api/users/${userId}`, {
       method: 'GET'
     })
     .then(response => response.json())
@@ -124,7 +124,7 @@ export const loadUser = (userId) => {
 export const updateUser = (user) => {
   console.log(user)
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${user.id}`, {
+    return fetch(`http://192.168.1.190:3001/api/users/${user.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

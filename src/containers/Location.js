@@ -10,9 +10,10 @@ class Location extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3001/api/locations')
+        fetch('http://192.168.1.190:3001/api/locations')
             .then(response => response.json())
             .then(locations => {
+                
                 this.setState({ 
                     allLocations: locations,
                     filteredLocations: locations
