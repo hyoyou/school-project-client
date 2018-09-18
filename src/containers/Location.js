@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { updateUser } from '../actions/authActions';
 import { connect } from 'react-redux';
+import { Button } from 'react-materialize';
 
 class Location extends Component {
     state = { 
@@ -55,7 +56,7 @@ class Location extends Component {
     render() {
         return (
             <div className="container">
-                <button className="submit-button" onClick={this.handleSubmit}>Check In</button>
+                <Button waves='light' onClick={this.handleSubmit}>Check In</Button>
                 <div className="row" style={{"paddingTop": "2%"}}>
                     <label htmlFor="search"><strong>Region:</strong></label>
                     <input id="search" type="text" placeholder="Search by Region" style={{"color": "black"}} onChange={this.filter} />
@@ -68,7 +69,7 @@ class Location extends Component {
                                 <p>City: {location.city}</p>
                                 <p>Name: {location.name}</p>
                                 <p>Address: {location.address}</p>
-                                <button className="submit-button" onClick={() => this.handleClick(location.id)}>Select</button>
+                                <Button waves='light' onClick={() => this.handleClick(location.id)}>Select</Button>
                                 <hr />
                             </div>
                         )
