@@ -60,11 +60,11 @@ class Location extends Component {
                         id="search" 
                         type="text" 
                         placeholder="Search by Region (Australia, Canada, China, Europe, India, Indonesia, Israel, Japan, Latin America, Singapore, South Korea, US)" 
-                        style={{"font-size": "11px"}} 
+                        style={{"fontSize": "11px"}} 
                         onChange={this.filter} />
                     
                     {/* <Dropdown trigger={<Button>Select Region</Button>}>
-                        <NavItem onClick={() => this.selectFilter()}>Australia</NavItem>
+                        <NavItem onClick={this.selectFilter}>Australia</NavItem>
                         <NavItem onClick={this.selectFilter}>Canada</NavItem>
                         <NavItem onClick={this.selectFilter}>China</NavItem>
                         <NavItem onClick={this.selectFilter}>Europe</NavItem>
@@ -77,6 +77,7 @@ class Location extends Component {
                         <NavItem onClick={this.selectFilter}>South Korea</NavItem>
                         <NavItem onClick={this.selectFilter}>US</NavItem>
                     </Dropdown> */}
+
                 </div>
                 <div className="row" style={{"paddingTop": "5%"}}>
                     {this.state.filteredLocations.map(location => {
