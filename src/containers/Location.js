@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { updateUser } from '../actions/authActions';
 import { connect } from 'react-redux';
-import { Button } from 'react-materialize';
+import { Button, Modal } from 'react-materialize';
 
 class Location extends Component {
     state = { 
@@ -35,28 +35,21 @@ class Location extends Component {
         this.setState({ filteredLocations });
     }
 
-    // Selecting location adds location's id to user data in component state
-    handleClick = locId => {
+    handleSubmit = async locId => {
         const updatedLocations = this.state.user.user_locations_attributes.concat([{ location_attributes: {id: locId }}])
-        // debugger
 
-        this.setState({
+        await this.setState({
             user: { ...this.state.user,
                 user_locations_attributes: updatedLocations
             }
         })
-    }
-    
-    // Extract out later to separate confirmation pop up
-    handleSubmit = () => {
-        // console.log(this.state.user)
+
         this.props.updateUser(this.state.user);
     }
  
     render() {
         return (
             <div className="container">
-                <Button waves='light' onClick={this.handleSubmit}>Check In</Button>
                 <div className="row" style={{"paddingTop": "2%"}}>
                     <label htmlFor="search"><strong>Region:</strong></label>
                     <input id="search" type="text" placeholder="Search by Region" style={{"color": "black"}} onChange={this.filter} />
@@ -68,8 +61,16 @@ class Location extends Component {
                                 <p>Region: {location.region}</p>
                                 <p>City: {location.city}</p>
                                 <p>Name: {location.name}</p>
-                                <p>Address: {location.address}</p>
-                                <Button waves='light' onClick={() => this.handleClick(location.id)}>Select</Button>
+
+                                <Modal
+                                    className="modal-content"
+                                    header={location.name}
+                                    trigger={<Button waves='light'>SELECT</Button>}>
+                                    <p>Is this the correct location?</p>
+                                    <p>Address: {location.address}</p>
+                                    <Button waves='light' onClick={() => this.handleSubmit(location.id)}>Yes, Check-In Here</Button>
+                                </Modal>
+
                                 <hr />
                             </div>
                         )
