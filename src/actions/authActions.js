@@ -101,7 +101,7 @@ export const login = (user, history) => {
 
 export const logout = (history) => {
   return dispatch => {
-      localStorage.clear();
+      sessionStorage.clear();
       history.push("/")
       return dispatch({type: 'LOGGEDOUT'});
   }
