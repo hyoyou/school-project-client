@@ -1,5 +1,7 @@
 /* button color - #ffd16d */
-
+.link-list {
+  list-style: none;
+}
 .school-logo {
   padding: 15px;
   width: 200px;
@@ -23,14 +25,18 @@
 
 .header-section__link {
   color: #fff;
+  text-decoration: none;
   margin: 0px 7px;
   font-size: 1.1em;
   font-weight: 100;
-  
+  padding-bottom: 0;
+  transition: padding-bottom 350ms;
 }
 
-.header-section__link:hover {
+.header-section__link:hover, .header-section__link:visited {
   color: #ffd16d;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #ffd16d;
   text-decoration: none;
 }
 
@@ -42,7 +48,6 @@
 .welcome-section {
   height: 160px;
   border-bottom: 3px solid #000;
-  
 }
 
 .welcome-section__btn {
@@ -65,13 +70,21 @@
 }
 
 .welcome-section__authPannel {
-  background-color: #fff;
+  display: block;
   width: 40%;
   height: 350px;
-  margin: 5% 30%;
+  margin: 5% auto 5% auto;
   padding: 20px;
+  background-color: rgb(155, 149, 149);
 }
 
+.welcome-section__authPannel--btn {
+  display: block;
+  width: 50%;
+  margin: 10% auto 10% auto;
+  background-color: #ffd16d;
+  color: #000;
+}
 
 .form-styling {
   background-color: #fff;

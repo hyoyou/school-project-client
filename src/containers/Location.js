@@ -27,7 +27,7 @@ class Location extends Component {
         let filteredLocations = [];
 
         allLocations.forEach(function(location) {
-            if (location.region.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+            if (location.region.toLowerCase().startsWith(query.toLowerCase())) {
                 filteredLocations.push(location);
             }
         })
@@ -56,7 +56,7 @@ class Location extends Component {
     render() {
         return (
             <div className="container">
-                <button onClick={this.handleSubmit}>Check In</button>
+                <button className="submit-button" onClick={this.handleSubmit}>Check In</button>
                 <div className="row" style={{"paddingTop": "2%"}}>
                     <label htmlFor="search"><strong>Region:</strong></label>
                     <input id="search" type="text" placeholder="Search by Region" style={{"color": "black"}} onChange={this.filter} />
@@ -69,7 +69,7 @@ class Location extends Component {
                                 <p>City: {location.city}</p>
                                 <p>Name: {location.name}</p>
                                 <p>Address: {location.address}</p>
-                                <button onClick={() => this.handleClick(location.id)}>Select</button>
+                                <button className="submit-button" onClick={() => this.handleClick(location.id)}>Select</button>
                                 <hr />
                             </div>
                         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './App.css';
 import Header from '../components/Header';
@@ -8,16 +9,20 @@ import Signup from '../containers/Signup';
 import Home from '../components/Home';
 import Leaderboard from '../containers/Leaderboard';
 import Location from '../containers/Location';
+import AuthPanel from '../components/AuthPanel';
 
 class App extends Component {
   render() {
-    
+    console.log("username App", this.props.username)
     return (
       <Router>
         <div>
 
           <Header />
           <Route path="/" component={Home} />
+          {!this.props.username ? 
+            <Route exact path="/" component={AuthPanel} /> : ""
+          }
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/locations" component={Location} />
@@ -29,5 +34,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const username = state.auth.current_user ? state.auth.current_user.username : ""
+  return {
+    username: username
+  }
+}
+
+export default connect(mapStateToProps, null)(App);
 
