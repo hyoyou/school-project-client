@@ -53,14 +53,14 @@ export const signup = (user, history) => {
             throw Error({response});
           
           } else{
-            localStorage.setItem('Token', response.token);
+            sessionStorage.setItem('Token', response.token);
             dispatch(signupSuccess(response.user))
             history.push("/")
           }        
         })
         .catch( errors => {
           
-          localStorage.clear()
+          sessionStorage.clear()
           dispatch(authFailure(errors))
         })
   }
@@ -85,14 +85,14 @@ export const login = (user, history) => {
             throw Error(response.errors);
           
           } else{
-            localStorage.setItem('Token', response.token);
+            sessionStorage.setItem('Token', response.token);
             history.push("/")
             dispatch(loginSuccess(response.user))
           }        
         })
         .catch( errors => {
         
-          localStorage.clear()
+          sessionStorage.clear()
           dispatch(authFailure(errors))
         })
   }

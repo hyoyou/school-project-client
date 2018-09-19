@@ -11,9 +11,11 @@ import Leaderboard from '../containers/Leaderboard';
 import Location from '../containers/Location';
 import AuthPanel from '../components/AuthPanel';
 
+
 class App extends Component {
   render() {
-    console.log("username App", this.props.username)
+    console.log("session", sessionStorage.Token)
+    
     return (
       <Router>
         <div>
@@ -25,13 +27,20 @@ class App extends Component {
           }
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/locations" component={Location} />
+          <Route path="/locations" component={Location} />
           <Route exact path="/leaderboards" component={Leaderboard} />
      
         </div>
       </Router>
     );
+
+    
   }
+ 
+}
+function requireAuth(nextState, replace){
+  console.log("yeah!")
+    
 }
 
 const mapStateToProps = (state) => {
