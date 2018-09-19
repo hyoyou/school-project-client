@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-const API_URL = "http://192.168.1.190:3001/api"
+import { login } from '../actions/authActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class Login extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       email: "",
@@ -18,82 +20,77 @@ class Login extends Component {
   }
 
   handleSubmit = (event) => {
-    
     event.preventDefault();
 
-    return fetch(`${API_URL}/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      
-      body: JSON.stringify(this.state)
+    this.props.login(this.state, this.props.history)
+    this.setState({
+      email: "",
+      password: ""
     })
-      .then(res => res.json())
-      .then((response) => {
-
-        if (response.errors) {
-          
-          throw Error(response.errors);
-        
-        } else{
-          localStorage.setItem('Token', response.token);
-          localStorage.setItem('Username', response.username);
-        }        
-      })
-      .then(
-        this.setState({
-          email: "",
-          password: ""
-        }),
-        this.props.history.push("/")
-      )
-      .catch( error => {
-        localStorage.clear()
-      })
   }
 
   render() {
-
-    const username = this.state.username
-    console.log(username)
+    const errors = this.props.errors
+    
     return (
-      <div className="row dark-background form-div">
-        <div className="col-sm-3"></div>
-        <div className="col-sm-6 form-styling ">
-          <h1>Please login to get started</h1>
-          <form onSubmit={(event) => this.handleSubmit(event)}>
-          <div className="form-group">
-              
-              <label>Email</label>
-              <input 
-              
-              name="email"
-              className="form-control" 
-              type="text" placeholder="please enter your email"
-              onChange={(event) => this.onInput(event)}
-              value={this.state.email}
-              />
-
-              <label>Password</label>
-              <input 
-              name="password"
-              className="form-control" 
-              type="password" placeholder="please enter your password"
-              onChange={(event) => this.onInput(event)}
-              value={this.state.password}
-              />
-
-              <button type="submit" className="btn submit-button">Submit</button>
-            </div>
-          </form>
-        
+      <section className="login-section">
+        <div className="row">
         </div>
-        <div className="col-sm-3"></div>
-      </div>
+        <div className="row dark-background form-div">
+          <div className="col-sm-3"></div>
+          
+          <div className="col-sm-6 form-styling ">
+
+            <div className="login-section__error-div col-sm-12"><span>{errors}</span></div>
+            <h1 className="login-section__title">Please login to get started</h1>
+
+            <form onSubmit={(event) => this.handleSubmit(event)}>
+            <div className="form-group">
+                
+                <label className="form-group__label">Email</label>
+                <input 
+                
+                name="email"
+                className="form-control form-group__input" 
+                type="email" placeholder="please enter your email"
+                onChange={(event) => this.onInput(event)}
+                value={this.state.email}
+                required
+                />
+
+                <label className="form-group__label">Password</label>
+                <input 
+                name="password"
+                className="form-control form-group__input" 
+                type="password" placeholder="please enter your password"
+                onChange={(event) => this.onInput(event)}
+                value={this.state.password}
+                required
+                />
+
+                <button type="submit" className="btn submit-button">Submit</button>
+              </div>
+            </form>
+            <div><span className="login-section__span">What you have not registered yet? please </span><a className="login-section__links" href="/signup">Signup</a></div>
+          </div>
+          <div className="col-sm-3"></div>
+        </div>
+      </section>
     )
   }
 
 }
 
-export default Login;
+const mapStateToProps = ({auth}) => {
+  return {
+    errors: auth.errors
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    login: login,
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
