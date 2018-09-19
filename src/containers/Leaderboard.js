@@ -1,54 +1,42 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
+
 
 class Leaderboard extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: null,
+      users: [],
     };
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:3000/api/leaderboards')
+    fetch('http://localhost:3000/api/users')
       .then(response => response.json())
-<<<<<<< HEAD
-      .then(data => this.setState(data));
+      .then(users => this.setState({users}));
     }
-
-=======
-      .then(data => this.setState({ data }))
-      debugger
-    }
-
-
 
     renderDetails = () => {
-      const { data } = this.state
-      if(!data) {
-            return "loading..."
-          } else {
-            _.map(data, function(value, key) {
-debugger
-              while (key < 5) {
-            return (
+      const { users } = this.state
 
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            )}
-        }
-      )}
+      for(let user in users) {
+        debugger
+          return (
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          )
+      }
+
+
   }
 
 
->>>>>>> Leaderboard
   render() {
-
+      const renderUser = !this.state.users ? "loading..." : this.renderDetails()
     return (
 
       <div className="container">
@@ -67,7 +55,7 @@ debugger
               </tr>
             </thead>
             <tbody>
-          {this.renderDetails()}
+          {renderUser}
             </tbody>
           </table>
           </div>
