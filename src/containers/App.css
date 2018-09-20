@@ -48,10 +48,11 @@
 .welcome-section {
   height: 160px;
   border-bottom: 3px solid #000;
+  padding-bottom: 30px;
 }
 
 .welcome-section__btn {
-  
+  display: block;
   width: 16%;
   text-align: center; 
   background-color: #ffd16d;
@@ -59,6 +60,7 @@
   font-weight: 600;
   padding: 10px;
   margin-left: 42%;
+  margin-bottom: -30px;
 }
 .welcome-section__title {
   font-size: 1.5em;

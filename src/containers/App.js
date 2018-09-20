@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.css';
@@ -14,27 +14,28 @@ import AuthPanel from '../components/AuthPanel';
 
 class App extends Component {
   render() {
-    console.log("session", sessionStorage.Token)
-    
+
     return (
       <Router>
         <div>
 
           <Header />
           <Route path="/" component={Home} />
-          {!this.props.username ? 
+          {!sessionStorage.Token ? 
             <Route exact path="/" component={AuthPanel} /> : ""
           }
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route path="/locations" component={Location} />
+
+          <Route path="/locations" render={() => {
+            return sessionStorage.Token ? (<Location />) : (<Redirect to="/" />)
+          }} />
+
           <Route exact path="/leaderboards" component={Leaderboard} />
      
         </div>
       </Router>
-    );
-
-    
+    );  
   }
  
 }
