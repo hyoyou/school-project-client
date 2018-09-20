@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
+
 const capitalizeUsername = (username) => {
   let capitalized = []
   username.split(" ").forEach(name => {
@@ -8,6 +9,7 @@ const capitalizeUsername = (username) => {
   })
   return capitalized.join(" ")
 }
+
 const Home= (props) => {
 
   const username = props.username ? 
@@ -30,15 +32,7 @@ const Home= (props) => {
         
       }
       </div>
-        <div className="row">
-
-          <div className="welcome-section__authPannel">
-            <a href="/login"  className="welcome-section__authPannel--btn">Login</a>
-            <a href="/login"  className="welcome-section__authPannel--btn">Signup</a>
-          </div>
-        
-        </div>
-
+    
     </section>
   )
 }

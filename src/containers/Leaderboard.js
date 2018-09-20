@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import _ from 'lodash';
 
 class Leaderboard extends Component {
   constructor(props) {
@@ -7,32 +7,33 @@ class Leaderboard extends Component {
 
     this.state = {
       users: [],
+
     };
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:3000/api/users')
+    fetch('http://localhost:3001/api/users')
       .then(response => response.json())
       .then(users => this.setState({users}));
     }
 
     renderDetails = () => {
-      const { users } = this.state
+      const users  = this.state.users.slice(0,10)
 
-      for(let user in users) {
-        debugger
-          return (
+// _.map([1, 4, 2, 66, 444, 9], function(value, index){ return index + ':' + value; });
+
+
+      return _.map(users, function(user, index) {
+        return (
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{index + 1}</td>
+              <td>{user.username}</td>
+              <td>{user.no_of_checkins}</td>
             </tr>
-          )
-      }
+        )
+      })
 
-
-  }
+    }
 
 
   render() {
@@ -40,9 +41,9 @@ class Leaderboard extends Component {
     return (
 
       <div className="container">
-      <div className="row">
-        <div className="col-sm-12 home-checkin-div">
-          <h1 className="home-heading">Meet Your Friendly Competitors</h1>
+        <div className="row">
+          <div className="col-sm-12 home-checkin-div">
+            <h3 className="home-heading">Meet Your Friendly Competitors</h3>
           </div>
         </div>
           <table className="table table-striped table-bordered">
@@ -50,7 +51,6 @@ class Leaderboard extends Component {
               <tr>
                 <th>Rank</th>
                 <th>Member</th>
-                <th>Primary WeWork</th>
                 <th># of Check-Ins</th>
               </tr>
             </thead>

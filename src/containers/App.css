@@ -1,16 +1,36 @@
 /* button color - #ffd16d */
 
+body {
+  background-image:
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  url(WeWork.jpg);
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+
+.link-list {
+  list-style: none;
+}
+
 .school-logo {
   padding: 15px;
   width: 200px;
+  margin: 15px;
 }
 
 .dark-background {
   background-color: #252729;
+  opacity: 0.8;
 }
 
+
 .header {
-  border-bottom: 3px solid #000;
+  border-bottom: 5px solid #1a1a1a;
+
 }
 
 .header-section{
@@ -23,14 +43,19 @@
 
 .header-section__link {
   color: #fff;
+  text-decoration: none;
   margin: 0px 7px;
   font-size: 1.1em;
   font-weight: 100;
 
+  padding-bottom: 0;
+  /*transition: padding-bottom 350ms;*/
 }
 
-.header-section__link:hover {
+.header-section__link:hover, .header-section__link:visited {
   color: #ffd16d;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #ffd16d;
   text-decoration: none;
 }
 
@@ -40,19 +65,21 @@
 }
 
 .welcome-section {
-  height: 160px;
-  border-bottom: 3px solid #000;
-
+  height: 120px;
+  /*border-bottom: 3px solid #1a1a1a;*/
 }
 
 .welcome-section__btn {
   width: 16%;
+  height: auto;
   text-align: center;
   background-color: #ffd16d;
-  color: #000;
+  color: #595959;
   font-weight: 600;
+  font-size: 18px;
   padding: 10px;
   margin-left: 42%;
+
 }
 
 .welcome-section__title {
@@ -66,12 +93,23 @@
 }
 
 .welcome-section__authPannel {
-  background-color: #fff;
+  display: block;
   width: 40%;
   height: 350px;
-  margin: 5% 30%;
+  margin: 5% auto 5% auto;
   padding: 20px;
+  background-color: rgb(155, 149, 149);
 }
+
+
+.welcome-section__authPannel--btn {
+  display: block;
+  width: 50%;
+  margin: 10% auto 10% auto;
+  background-color: #ffd16d;
+  color: #000;
+}
+
 
 .form-styling {
   background-color: #fff;
@@ -127,3 +165,29 @@ div{
 .modal-content {
   color: #252729;
 }
+
+
+/*leaderboard table*/
+
+table th {
+    font-size: 26px;
+
+}
+
+.container table {
+  font-size: 20px;
+  margin-bottom: 20%;
+  margin-top: 5%;
+
+}
+
+.home-heading {
+  margin-top: 10%;
+
+}
+
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #666666;
+ }
