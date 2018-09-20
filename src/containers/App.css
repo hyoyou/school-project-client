@@ -10,6 +10,7 @@ body {
   url(WeWork.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: static;
 }
 
 
@@ -26,7 +27,7 @@ body {
 }
 
 .dark-background {
-  /*background-color: #252729;*/
+  background-color: #252729;
   opacity: 0.8;
   padding-bottom: 20px;
 }

@@ -21,7 +21,7 @@ class App extends Component {
 
           <Header />
           <Route path="/" component={Home} />
-          {!this.props.username ?
+          { !sessionStorage.Token ?
             <Route exact path="/" component={AuthPanel} /> : ""
           }
           <Route exact path="/login" component={Login} />
