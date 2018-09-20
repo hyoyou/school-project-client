@@ -12,27 +12,27 @@ const capitalizeUsername = (username) => {
 
 const Home= (props) => {
 
-  const username = props.username ? 
+  const username = props.username ?
   capitalizeUsername(props.username) : ""
- 
+
   return(
     <section >
-      
+
       <div className="welcome-section row">
         {username ?
 
         <div className="col-sm-12">
-      
+
           <h1 className="welcome-section__title">Welcome <span className="welcome-section--username">{username}</span>, are you here?</h1>
           <button className="welcome-section__btn btn" onClick={this.handleClick}>Check in</button>
-        
+
         </div>
         : 
         <h1 className="welcome-section__title"> Welcome! </h1>
-        
+
       }
       </div>
-    
+
     </section>
   )
 }

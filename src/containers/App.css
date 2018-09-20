@@ -1,6 +1,7 @@
 /* button color - #ffd16d */
 
 body {
+
   background-image:
   linear-gradient(
     rgba(0, 0, 0, 0.5),
@@ -8,8 +9,10 @@ body {
   ),
   url(WeWork.jpg);
   background-repeat: no-repeat;
-  background-size: cover
+  background-size: cover;
 }
+
+
 
 
 .link-list {
@@ -23,13 +26,16 @@ body {
 }
 
 .dark-background {
-  background-color: #252729;
+  /*background-color: #252729;*/
   opacity: 0.8;
+  padding-bottom: 20px;
 }
 
 
 .header {
   border-bottom: 5px solid #1a1a1a;
+  margin-left: -18px;
+  margin-right: -10px;
 
 }
 
@@ -39,17 +45,26 @@ body {
 
 .header-section__links{
   float: right;
+  padding-right: 20px;
+
+
 }
 
 .header-section__link {
-  color: #fff;
+  /*color: #fff;*/
   text-decoration: none;
   margin: 0px 7px;
-  font-size: 1.1em;
-  font-weight: 100;
-
+  font-size: 1.4em;
+  font-weight: 300;
   padding-bottom: 0;
+
   /*transition: padding-bottom 350ms;*/
+}
+
+.logout-button {
+  font-size: 1.4em;
+  font-weight: 100;
+  padding-bottom: 0;
 }
 
 .header-section__link:hover, .header-section__link:visited {
@@ -83,9 +98,15 @@ body {
 }
 
 .welcome-section__title {
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-align: center;
   padding: 20px 0px;
+  text-shadow: black 0px 0px 8px;
+}
+
+h1.welcome-section__title {
+    font-size: 3em;
+    padding-top: 60px;
 }
 
 .welcome-section--username {
@@ -95,39 +116,57 @@ body {
 .welcome-section__authPannel {
   display: block;
   width: 40%;
-  height: 350px;
+  height: 550px;
   margin: 5% auto 5% auto;
   padding: 20px;
-  background-color: rgb(155, 149, 149);
+
+  /*background-color: rgb(155, 149, 149);*/
 }
 
 
 .welcome-section__authPannel--btn {
   display: block;
+  padding: 10px;
   width: 50%;
+  height: auto;
+  text-align: center;
   margin: 10% auto 10% auto;
   background-color: #ffd16d;
-  color: #000;
+  color: #595959;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px;
 }
 
 
 .form-styling {
   background-color: #fff;
   margin-bottom: 5%;
+  padding: 50px;
 }
 
 .form-div {
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 .form-div h1 {
   font-size: 2em;
-  padding: 15px 0;
+  font-weight: normal;
+
 }
 
 .submit-button {
   margin: 15px 0;
+  padding: 5px;
+  width: 30%;
+  height: auto;
+  text-align: center;
   background-color: #ffd16d;
+  color: #595959;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px;
+  opacity: 1;
 }
 
 div{
@@ -136,11 +175,14 @@ div{
 
 .form-div__title, .form-group__label, .login-section__span, .login-section__title{
   color: #000;
+  font-size: 18px;
 }
 
 .login-section__links {
   color: #c0392b;
   font-weight: 600;
+  font-size: 17px;
+
 }
 
 .login-section__links:hover {
@@ -172,18 +214,21 @@ div{
 table th {
     font-size: 26px;
 
+
 }
+
 
 .container table {
   font-size: 20px;
   margin-bottom: 20%;
   margin-top: 5%;
+  text-shadow: black 0px 0px 8px;
 
 }
 
 .home-heading {
   margin-top: 10%;
-
+  text-shadow: black 0px 0px 8px;
 }
 
 

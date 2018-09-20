@@ -13,9 +13,9 @@ const Header = (props) => {
         <img className="school-logo" src={logo} alt="logo"/>
       </div>
       <div className="col-sm-8 header-section">
-          
-        {current_user ? 
-          
+
+        {sessionStorage.Token ? 
+
           <div className="header-section__links">
 
             <Link to="/" className="header-section__link">Home</Link>
@@ -36,7 +36,7 @@ const Header = (props) => {
             <Link to="/login"  className="header-section__link">Login</Link>
             <span>|</span>
             <Link to="/signup"  className="header-section__link">Signup</Link>
-            
+
           </div>
         }
       </div>
