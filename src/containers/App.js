@@ -10,9 +10,16 @@ import Home from '../components/Home';
 import Leaderboard from '../containers/Leaderboard';
 import Location from '../containers/Location';
 import AuthPanel from '../components/AuthPanel';
+import Profile from '../components/Profile';
 
 
 class App extends Component {
+  
+
+  componentDidMount() {
+  
+  }
+  
   render() {
 
     return (
@@ -29,6 +36,10 @@ class App extends Component {
 
           <Route path="/locations" render={() => {
             return sessionStorage.Token ? (<Location />) : (<Redirect to="/" />)
+          }} />
+
+          <Route path="/profile" render={() => {
+            return sessionStorage.Token ? (<Profile />) : (<Redirect to="/" />)
           }} />
 
           <Route exact path="/leaderboards" component={Leaderboard} />

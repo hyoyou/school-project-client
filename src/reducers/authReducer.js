@@ -1,16 +1,24 @@
-export default (state = {
+const INITIAL_STATE = {
   authenticated: false,
-  current_user: {},
+  current_user: {
+    id: null,
+    username: "",
+    email: "",
+    no_of_checkins: 0,
+    user_locations_attributes: []
+  },
   errors: []
-}, action) => {
+}
+
+export default (state = INITIAL_STATE, action) => {
 
   switch (action.type) {
     case 'LOGIN':
-
+      
       return {
         ...state,
         authenticated: true,
-        current_user: action.user,
+        current_user: {...action.user},
         errors: []
       }
 
@@ -39,6 +47,7 @@ export default (state = {
       }
     
     case 'LOAD_USER_SUCCESS':
+    
       return {
         ...state,
         authenticated: true,
@@ -46,10 +55,12 @@ export default (state = {
       }
 
     case 'UPDATE_USER_SUCCESS':
+      debugger
       return {
         ...state,
         authenticated: true,
-        current_user: action.payload
+        current_user: {...action.payload}
+        //current_user: {...state.current_user, user_locations_attributes: [...state.current_user.user_locations_attributes, action.payload.user.user_locations_attributes]}
       }
 
     default:

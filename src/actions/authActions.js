@@ -133,6 +133,7 @@ export const updateUser = (user) => {
     })
     .then(response => response.json())
     .then(result => {
+      
       dispatch(updateUserSuccess(result))
     })
     .catch(error => console.log(error))

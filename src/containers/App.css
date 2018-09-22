@@ -53,19 +53,17 @@
 
 .welcome-section__btn {
   display: block;
-  width: 16%;
   text-align: center; 
   background-color: #ffd16d;
   color: #000;
   font-weight: 600;
-  padding: 10px;
   margin-left: 42%;
   margin-bottom: -30px;
 }
 .welcome-section__title {
   font-size: 1.5em;
   text-align: center;
-  padding: 20px 0px;
+  
 }
 .welcome-section--username {
   color: #ffd16d;
