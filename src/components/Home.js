@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
+// Home should maybe be a container??
 
 const capitalizeUsername = (username) => {
   let capitalized = []
@@ -10,7 +11,11 @@ const capitalizeUsername = (username) => {
   return capitalized.join(" ")
 }
 
-const Home= (props) => {
+// const handleClick = (props) => {
+//   props.history.push('/locations');
+// }
+
+const Home = (props) => {
 
   const username = props.username ? 
   capitalizeUsername(props.username) : ""
@@ -36,8 +41,6 @@ const Home= (props) => {
     </section>
   )
 }
-
-//export default Home
 
 const mapStateToProps = (state) => {
   const username = state.auth.current_user ? state.auth.current_user.username : ""
