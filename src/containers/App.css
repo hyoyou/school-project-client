@@ -1,16 +1,19 @@
 /* button color - #ffd16d */
 
+html,
 body {
+  height: 100%;
+}
 
+
+body {
   background-image:
-  linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-  ),
-  url(WeWork.jpg);
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url(WeWork.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: static;
 }
 
 
@@ -37,7 +40,6 @@ body {
   border-bottom: 5px solid #1a1a1a;
   margin-left: -18px;
   margin-right: -10px;
-
 }
 
 .header-section{
@@ -81,33 +83,40 @@ body {
 }
 
 .welcome-section {
-  height: 120px;
+  height: 75px;
   /*border-bottom: 3px solid #1a1a1a;*/
 }
 
 .welcome-section__btn {
-  width: 16%;
+
+  height: 160px;
+  border-bottom: 3px solid #000;
+  padding-bottom: 30px;
+}
+
+.welcome-section__btn {
+  display: block;
+  width: 13%;
   height: auto;
   text-align: center;
   background-color: #ffd16d;
   color: #595959;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.2em;
   padding: 10px;
   margin-left: 42%;
+  margin-bottom: -30px;
+  margin-top: 40px;
+  box-shadow: 5px 10px 18px #333333;
 
 }
 
 .welcome-section__title {
-  font-size: 1.7em;
+  font-size: 2.2em;
   text-align: center;
-  padding: 20px 0px;
+  padding: 10px 0px;
   text-shadow: black 0px 0px 8px;
-}
-
-h1.welcome-section__title {
-    font-size: 3em;
-    padding-top: 60px;
+  padding-top: 100px;
 }
 
 .welcome-section--username {
@@ -120,14 +129,13 @@ h1.welcome-section__title {
   height: 550px;
   margin: 5% auto 5% auto;
   padding: 20px;
-
-  /*background-color: rgb(155, 149, 149);*/
+  background-color: transparent !important;
+  border: none;
 }
 
 
 .welcome-section__authPannel--btn {
   display: block;
-  padding: 10px;
   width: 50%;
   height: auto;
   text-align: center;
@@ -210,6 +218,7 @@ div{
 }
 
 
+
 /*leaderboard table*/
 
 table th {
@@ -222,14 +231,15 @@ table th {
 .container table {
   font-size: 20px;
   margin-bottom: 20%;
-  margin-top: 5%;
+  margin-top: 1%;
   text-shadow: black 0px 0px 8px;
 
 }
 
 .home-heading {
-  margin-top: 10%;
+  margin-top: 17%;
   text-shadow: black 0px 0px 8px;
+  text-align: center;
 }
 
 
@@ -237,3 +247,41 @@ table th {
 .table-striped>tbody>tr:nth-child(odd)>th {
    background-color: #666666;
  }
+
+label[for="search"] {
+  margin-top: 130px;
+  font-size: 2.1em;
+  color: white;
+  text-shadow: black 0px 0px 8px;
+ }
+
+ #search {
+  margin-top: 20px;
+  border: 2px solid #cccccc;
+  padding: 5px;
+  padding-left: 45px;
+  text-shadow: black 0px 0px 8px;
+
+ }
+
+ #search:hover {
+  background-color: #333333;
+ }
+
+
+ .row {
+   position: relative;
+ }
+
+.row i {
+   position: absolute;
+   padding: 9px 10px;
+   pointer-events: none;
+   bottom: 28px;
+ }
+
+ /*div#root.container-fluid:after {
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: static;
+ }*/

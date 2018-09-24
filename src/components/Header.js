@@ -14,7 +14,8 @@ const Header = (props) => {
       </div>
       <div className="col-sm-8 header-section">
 
-        {sessionStorage.Token ? 
+
+        {sessionStorage.Token ?
 
           <div className="header-section__links">
 

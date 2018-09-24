@@ -43,7 +43,7 @@ class Leaderboard extends Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-12 home-checkin-div">
-            <h3 className="home-heading">Meet Your Friendly Competitors</h3>
+            <h4 className="home-heading">Meet Your Friendly Competitors</h4>
           </div>
         </div>
           <table className="table table-striped table-bordered">

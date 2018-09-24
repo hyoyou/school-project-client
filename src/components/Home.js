@@ -19,7 +19,7 @@ const Home= (props) => {
     <section >
 
       <div className="welcome-section row">
-        {username ?
+        {sessionStorage.Token ?
 
         <div className="col-sm-12">
 
@@ -27,7 +27,7 @@ const Home= (props) => {
           <button className="welcome-section__btn btn" onClick={this.handleClick}>Check in</button>
 
         </div>
-        : 
+        :
         <h1 className="welcome-section__title"> Welcome! </h1>
 
       }

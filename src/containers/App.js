@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.css';
@@ -11,6 +11,7 @@ import Leaderboard from '../containers/Leaderboard';
 import Location from '../containers/Location';
 import AuthPanel from '../components/AuthPanel';
 
+
 class App extends Component {
   render() {
 
@@ -21,12 +22,20 @@ class App extends Component {
 
           <Header />
           <Route path="/" component={Home} />
+
           { !sessionStorage.Token ?
+
+
             <Route exact path="/" component={AuthPanel} /> : ""
           }
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/locations" component={Location} />
+
+
+
+          <Route path="/locations" render={() => {
+            return sessionStorage.Token ? (<Location />) : (<Redirect to="/" />)
+          }} />
 
           <Route exact path="/leaderboard" component={Leaderboard} />
 
@@ -34,6 +43,11 @@ class App extends Component {
       </Router>
     );
   }
+
+}
+function requireAuth(nextState, replace){
+  console.log("yeah!")
+
 }
 
 const mapStateToProps = (state) => {
