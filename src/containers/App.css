@@ -5,7 +5,6 @@ body {
   height: 100%;
 }
 
-
 body {
   background-image:
     linear-gradient(
@@ -14,9 +13,8 @@ body {
     ), url(WeWork.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
-
-
 
 
 .link-list {
@@ -34,7 +32,6 @@ body {
   opacity: 0.8;
   padding-bottom: 20px;
 }
-
 
 .header {
   border-bottom: 5px solid #1a1a1a;
@@ -84,8 +81,8 @@ body {
 
 .welcome-section {
   height: 75px;
-  /*border-bottom: 3px solid #1a1a1a;*/
 }
+
 
 .welcome-section__btn {
 
@@ -224,23 +221,24 @@ div{
 table th {
     font-size: 26px;
 
-
 }
 
 
 .container table {
   font-size: 20px;
-  margin-bottom: 20%;
-  margin-top: 1%;
+  margin-bottom: 10%;
+  margin-top: 10%;
   text-shadow: black 0px 0px 8px;
-
 }
 
 .home-heading {
   margin-top: 17%;
+  margin-bottom: 5%;
   text-shadow: black 0px 0px 8px;
   text-align: center;
 }
+
+
 
 
 .table-striped>tbody>tr:nth-child(odd)>td,
@@ -279,9 +277,3 @@ label[for="search"] {
    pointer-events: none;
    bottom: 28px;
  }
-
- /*div#root.container-fluid:after {
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: static;
- }*/

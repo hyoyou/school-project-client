@@ -41,11 +41,10 @@ class Leaderboard extends Component {
     return (
 
       <div className="container">
-        <div className="row">
           <div className="col-sm-12 home-checkin-div">
             <h4 className="home-heading">Meet Your Friendly Competitors</h4>
           </div>
-        </div>
+
           <table className="table table-striped table-bordered">
             <thead>
               <tr>
@@ -55,10 +54,10 @@ class Leaderboard extends Component {
               </tr>
             </thead>
             <tbody>
-          {renderUser}
+              {renderUser}
             </tbody>
           </table>
-          </div>
+      </div>
 
     )
   }

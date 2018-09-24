@@ -28,7 +28,7 @@ const Home= (props) => {
 
         </div>
         :
-        <h1 className="welcome-section__title"> Welcome! </h1>
+        <h1 className="welcome-username"> Welcome! </h1>
 
       }
       </div>
