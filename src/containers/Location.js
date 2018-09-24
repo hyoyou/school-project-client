@@ -57,12 +57,14 @@ class Location extends Component {
         return (
             <div className="container">
                 <div className="row" style={{"paddingTop": "2%"}}>
-                    <label htmlFor="search"><strong>Region:</strong></label>
+
+                    <label htmlFor="search"><strong>Search</strong></label>
+
                     <input
                         id="search"
                         type="text"
-                        placeholder="Search by Region (Australia, Canada, China, Europe, India, Indonesia, Israel, Japan, Latin America, Singapore, South Korea, US)"
-                        style={{"fontSize": "11px"}}
+                        placeholder="Search By Region (Australia, Canada, China, Europe, India, Indonesia, Israel, Japan, Latin America, Singapore, South Korea, US)"
+                        style={{"fontSize": "14px"}}
                         onChange={this.filter} />
 
                     {/* <Dropdown trigger={<Button>Select Region</Button>}>
@@ -79,6 +81,10 @@ class Location extends Component {
                         <NavItem onClick={this.selectFilter}>South Korea</NavItem>
                         <NavItem onClick={this.selectFilter}>US</NavItem>
                     </Dropdown> */}
+                    <i className="material-icons">search</i>
+
+
+
 
                 </div>
                 <div className="row" style={{"paddingTop": "5%"}}>

@@ -31,14 +31,14 @@ class Login extends Component {
 
   render() {
     const errors = this.props.errors
-    
+
     return (
       <section className="login-section">
         <div className="row">
         </div>
         <div className="row dark-background form-div">
           <div className="col-sm-3"></div>
-          
+
           <div className="col-sm-6 form-styling ">
 
             <div className="login-section__error-div col-sm-12"><span>{errors}</span></div>
@@ -46,23 +46,23 @@ class Login extends Component {
 
             <form onSubmit={(event) => this.handleSubmit(event)}>
             <div className="form-group">
-                
+
                 <label className="form-group__label">Email</label>
-                <input 
-                
+                <input
+
                 name="email"
-                className="form-control form-group__input" 
-                type="email" placeholder="please enter your email"
+                className="form-control form-group__input"
+                type="email" placeholder="please enter email"
                 onChange={(event) => this.onInput(event)}
                 value={this.state.email}
                 required
                 />
 
                 <label className="form-group__label">Password</label>
-                <input 
+                <input
                 name="password"
-                className="form-control form-group__input" 
-                type="password" placeholder="please enter your password"
+                className="form-control form-group__input"
+                type="password" placeholder="please enter password"
                 onChange={(event) => this.onInput(event)}
                 value={this.state.password}
                 required
@@ -71,7 +71,7 @@ class Login extends Component {
                 <button type="submit" className="btn submit-button">Submit</button>
               </div>
             </form>
-            <div><span className="login-section__span">What you have not registered yet? please </span><a className="login-section__links" href="/signup">Signup</a></div>
+            <div><span className="login-section__span">Not registered? </span><a className="login-section__links" href="/signup">Signup</a></div>
           </div>
           <div className="col-sm-3"></div>
         </div>
