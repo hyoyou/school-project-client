@@ -1,27 +1,66 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './App.css';
 import Header from '../components/Header';
 import Login from '../containers/Login';
+import Signup from '../containers/Signup';
 import Home from '../components/Home';
 import Leaderboard from '../containers/Leaderboard';
 import Location from '../containers/Location';
+import AuthPanel from '../components/AuthPanel';
+import Profile from '../components/Profile';
+
 
 class App extends Component {
+  
+
+  componentDidMount() {
+  
+  }
+  
   render() {
+
     return (
       <Router>
         <div>
+
           <Header />
           <Route path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route exact path="/locations" component={Location} />
+          {!sessionStorage.Token ? 
+            <Route exact path="/" component={AuthPanel} /> : ""
+          }
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+
+          <Route path="/locations" render={() => {
+            return sessionStorage.Token ? (<Location />) : (<Redirect to="/" />)
+          }} />
+
+          <Route path="/profile" render={() => {
+            return sessionStorage.Token ? (<Profile />) : (<Redirect to="/" />)
+          }} />
+
           <Route exact path="/leaderboards" component={Leaderboard} />
+     
         </div>
       </Router>
-    );
+    );  
+  }
+ 
+}
+function requireAuth(nextState, replace){
+  console.log("yeah!")
+    
+}
+
+const mapStateToProps = (state) => {
+  const username = state.auth.current_user ? state.auth.current_user.username : ""
+  return {
+    username: username
   }
 }
 
-export default App;
+export default connect(mapStateToProps, null)(App);
+

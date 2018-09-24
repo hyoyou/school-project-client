@@ -1,15 +1,52 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
-const Home= () => {
-  const username = localStorage.Username
+// Home should maybe be a container??
+
+const capitalizeUsername = (username) => {
+  let capitalized = []
+  username.split(" ").forEach(name => {
+    capitalized.push(name.slice(0, 1).toUpperCase() + name.slice(1, name.length))
+  })
+  return capitalized.join(" ")
+}
+
+// const handleClick = (props) => {
+//   props.history.push('/locations');
+// }
+
+const Home = (props) => {
+
+  const username = props.username ? 
+  capitalizeUsername(props.username) : ""
+ 
   return(
-    <div className="row">
-      <div className="col-sm-12 home-checkin-div">
-        <h1 className="home-heading">Welcome {username}, Are you here?</h1>
-        {/* <button className="btn btn-outline-dark" style={{ marginLeft: '50%' }} onClick={this.handleClick}>Check in</button> */}
+    <section >
+      
+      <div className="welcome-section row">
+        {username ?
+
+        <div className="col-sm-12">
+      
+          <h1 className="welcome-section__title">Welcome <span className="welcome-section--username">{username}</span>, are you here?</h1>
+          <button className="welcome-section__btn btn" onClick={this.handleClick}>Check in</button>
+        
+        </div>
+        : 
+        <h1 className="welcome-section__title"> Welcome! </h1>
+        
+      }
       </div>
-    </div>
+    
+    </section>
   )
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  const username = state.auth.current_user ? state.auth.current_user.username : ""
+  return {
+    username: username
+  }
+}
+
+export default connect(mapStateToProps, null)(Home);
