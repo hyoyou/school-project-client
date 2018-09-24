@@ -4,18 +4,18 @@ import { connect } from 'react-redux';
 import { Button, Dropdown, NavItem, Modal } from 'react-materialize';
 
 class Location extends Component {
-    state = { 
+    state = {
         allLocations: [],
         filteredLocations: [],
         user: this.props.user
     }
 
     componentDidMount() {
-        fetch('http://192.168.1.190:3001/api/locations')
+        fetch('http://localhost:3000/api/locations')
             .then(response => response.json())
             .then(locations => {
-                
-                this.setState({ 
+
+                this.setState({
                     allLocations: locations,
                     filteredLocations: locations
                 })
@@ -52,19 +52,19 @@ class Location extends Component {
     selectFilter = () => {
         debugger
     }
- 
+
     render() {
         return (
             <div className="container">
                 <div className="row" style={{"paddingTop": "2%"}}>
                     <label htmlFor="search"><strong>Region:</strong></label>
-                    <input 
-                        id="search" 
-                        type="text" 
-                        placeholder="Search by Region (Australia, Canada, China, Europe, India, Indonesia, Israel, Japan, Latin America, Singapore, South Korea, US)" 
-                        style={{"fontSize": "11px"}} 
+                    <input
+                        id="search"
+                        type="text"
+                        placeholder="Search by Region (Australia, Canada, China, Europe, India, Indonesia, Israel, Japan, Latin America, Singapore, South Korea, US)"
+                        style={{"fontSize": "11px"}}
                         onChange={this.filter} />
-                    
+
                     {/* <Dropdown trigger={<Button>Select Region</Button>}>
                         <NavItem onClick={this.selectFilter}>Australia</NavItem>
                         <NavItem onClick={this.selectFilter}>Canada</NavItem>

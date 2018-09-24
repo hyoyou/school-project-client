@@ -13,14 +13,9 @@ class Leaderboard extends Component {
   componentDidMount = () => {
     fetch('http://localhost:3000/api/leaderboards')
       .then(response => response.json())
-<<<<<<< HEAD
       .then(data => this.setState(data));
     }
 
-=======
-      .then(data => this.setState({ data }))
-      debugger
-    }
 
 
 
@@ -45,8 +40,6 @@ debugger
       )}
   }
 
-
->>>>>>> Leaderboard
   render() {
 
     return (
