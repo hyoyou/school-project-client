@@ -12,7 +12,7 @@ class Leaderboard extends Component {
   }
 
   componentDidMount = () => {
-    fetch('https://school-project-server.herokuapp.com/api/users')
+    fetch('http://school-project-server.herokuapp.com/api/users')
       .then(response => response.json())
       .then(users => this.setState({users}));
     }
