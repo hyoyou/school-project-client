@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { updateUser } from '../actions/authActions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Button, Modal } from 'react-materialize';
 
 // const loc_url = 'http://192.168/1/190:3001/api/locations'
@@ -50,6 +51,7 @@ class Location extends Component {
         })
 
         this.props.updateUser(this.state.user);
+        this.props.history.push('/leaderboard');
     }
 
     render() {
@@ -99,4 +101,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateUser })(Location);
+export default withRouter(connect(mapStateToProps, { updateUser })(Location));
