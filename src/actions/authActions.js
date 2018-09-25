@@ -98,7 +98,6 @@ export const login = (user, history) => {
           dispatch(authFailure(errors))
         })
   }
-
 }
 
 export const logout = (history) => {

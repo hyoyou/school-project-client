@@ -55,11 +55,10 @@ export default (state = INITIAL_STATE, action) => {
       }
 
     case 'UPDATE_USER_SUCCESS':
-      debugger
       return {
         ...state,
         authenticated: true,
-        current_user: {...action.payload}
+        current_user: action.payload
         //current_user: {...state.current_user, user_locations_attributes: [...state.current_user.user_locations_attributes, action.payload.user.user_locations_attributes]}
       }
 
