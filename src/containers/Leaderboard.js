@@ -26,7 +26,7 @@ class Leaderboard extends Component {
 
       return _.map(users, function(user, index) {
         return (
-            <tr>
+            <tr key={index}>
               <td>{index + 1}</td>
               <td>{user.username}</td>
               <td>{user.no_of_checkins}</td>
