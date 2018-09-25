@@ -62,7 +62,6 @@ class Signup extends Component {
     }
           
   render() {
-    console.log("signup errors", this.props.errors)
     return(
       <section className="row dark-background form-div">
         <div className="col-sm-3"></div>

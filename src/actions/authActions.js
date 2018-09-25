@@ -38,7 +38,7 @@ const updateUserSuccess = (user) => {
 
 export const signup = (user, history) => {
   return dispatch => {
-    return fetch(`${API_URL}/users`, {
+    return fetch(`${API_URL}/users`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -49,23 +49,18 @@ export const signup = (user, history) => {
         .then(res => res.json())
         .then((response) => {
           if (response.message) {
-
             throw Error({response});
-
-          } else{
+          } else {
             sessionStorage.setItem('Token', response.token);
             dispatch(signupSuccess(response.user))
             history.push("/")
           }
         })
-        .catch( errors => {
-
+        .catch((errors) => {
           sessionStorage.clear()
-
           dispatch(authFailure(errors))
         })
   }
-
 }
 
 export const login = (user, history) => {
