@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Modal } from 'react-materialize';
 
-// const loc_url = 'https://school-project-server.herokuapp.com/api/locations'
-const loc_url = 'https://localhost:3001/api/locations'
+const loc_url = 'http://school-project-server.herokuapp.com/api/locations'
+// const loc_url = 'https://localhost:3001/api/locations'
 
 class Location extends Component {
     state = {
