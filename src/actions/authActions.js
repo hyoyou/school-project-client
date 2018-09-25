@@ -1,4 +1,4 @@
-const API_URL = "http://school-project-server.herokuapp.com/api"
+const API_URL = "https://school-project-server.herokuapp.com/api"
 // const API_URL = 'http://localhost:3001/api'
 
 const signupSuccess = (user) => {
