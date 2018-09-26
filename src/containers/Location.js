@@ -37,7 +37,7 @@ class Location extends Component {
     }
 
     handleSubmit = async locId => {
-        debugger
+        
         const updatedLocations = this.state.user.user_locations_attributes.concat([{ location_attributes: {id: locId }}])
 
         await this.setState({

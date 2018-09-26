@@ -9,7 +9,8 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errors: ""
     }
   }
 
@@ -25,18 +26,20 @@ class Login extends Component {
     this.props.login(this.state, this.props.history)
     this.setState({
       email: "",
-      password: ""
+      password: "",
+      errors: this.props.errors
     })
   }
 
   render() {
-    const errors = this.props.errors
+    
+    const errors = this.state.errors
     
     return (
       <section className="login-section">
         <div className="row">
         </div>
-        <div className="row dark-background form-div">
+        <div className="row form-div">
           <div className="col-sm-3"></div>
           
           <div className="col-sm-6 form-styling ">
@@ -82,8 +85,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = ({auth}) => {
+  
   return {
-    errors: auth.errors
+    errors: auth.login_errors
   }
 }
 

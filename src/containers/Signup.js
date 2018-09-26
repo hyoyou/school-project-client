@@ -14,13 +14,15 @@ class Signup extends Component {
             password: "",
             passwordError: "",
             passwordConfirmation: "",
-            passwordConfirmationError: ""
+            passwordConfirmationError: "",
+            authErrors: ""
         }
 
     }
 
     onInput = event => {
         this.setState({
+            authErrors: "",
             [event.target.name]: event.target.value
         })
     }
@@ -58,17 +60,27 @@ class Signup extends Component {
 
       if (!err) {
         this.props.signup(this.state, this.props.history)
+        this.setState({
+          username: "",
+          email: "",
+          password: "",
+          passwordConfirmation: "",
+          authErrors: this.props.errors
+        })
       }
     }
           
   render() {
-    console.log("signup errors", this.props.errors)
+    
+    const errors = this.state.authErrors
+    console.log(errors)
     return(
-      <section className="row dark-background form-div">
+      <section className="row form-div">
         <div className="col-sm-3"></div>
 
         <div className="col-sm-6 form-styling ">
-
+          
+          <div className="login-section__error-div col-sm-12"><span>{errors}</span></div>
           <h1 className="form-div__title">Please Signup to get started</h1>
 
           <form onSubmit={(event) => this.handleSubmit(event)}>
@@ -133,7 +145,7 @@ class Signup extends Component {
 
 const mapStateToProps = ({auth}) => {
   return {
-    errors: auth.errors
+    errors: auth.signup_errors
   }
 }
 

@@ -1,5 +1,5 @@
-// const API_URL = "http://192.168.1.190:3001/api"
-const API_URL = "http://localhost:3001/api"
+ const API_URL = "http://192.168.1.190:3001/api"
+//const API_URL = "http://localhost:3001/api"
 
 const signupSuccess = (user) => {
   return {
@@ -15,9 +15,16 @@ const loginSuccess = (user) => {
   }
 }
 
-const authFailure = (errors) => {
+const loginFailure = (errors) => {
   return {
-    type: 'AUTHENTICATION_FAILURE',
+    type: 'LOGIN_FAILURE',
+    errors: errors.message
+  }
+}
+
+const signupFailure = (errors) => {
+  return {
+    type: 'SIGNUP_FAILURE',
     errors: errors.message
   }
 }
@@ -48,9 +55,10 @@ export const signup = (user, history) => {
       })
         .then(res => res.json())
         .then((response) => {
-          if (response.message) {
-            
-            throw Error({response});
+          
+          if (response.errors) {
+           
+            throw Error(response.errors);
           
           } else{
             sessionStorage.setItem('Token', response.token);
@@ -61,13 +69,14 @@ export const signup = (user, history) => {
         .catch( errors => {
           
           sessionStorage.clear()
-          dispatch(authFailure(errors))
+          dispatch(signupFailure(errors))
         })
   }
       
 }
 
 export const login = (user, history) => {
+  
   return dispatch => {
     return fetch(`${API_URL}/sessions`, {
       method: 'POST',
@@ -93,7 +102,7 @@ export const login = (user, history) => {
         .catch( errors => {
         
           sessionStorage.clear()
-          dispatch(authFailure(errors))
+          dispatch(loginFailure(errors))
         })
   }
       
