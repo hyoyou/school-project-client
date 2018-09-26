@@ -14,13 +14,14 @@ import Profile from '../components/Profile';
 
 
 class App extends Component {
-  
+
 
   componentDidMount() {
-  
+
   }
-  
+
   render() {
+
 
     return (
       <Router>
@@ -28,31 +29,38 @@ class App extends Component {
 
           <Header />
           <Route path="/" component={Home} />
-          {!sessionStorage.Token ? 
+
+          { !sessionStorage.Token ?
+
+
             <Route exact path="/" component={AuthPanel} /> : ""
           }
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
 
+
+
           <Route path="/locations" render={() => {
             return sessionStorage.Token ? (<Location />) : (<Redirect to="/" />)
           }} />
+
 
           <Route path="/profile" render={() => {
             return sessionStorage.Token ? (<Profile />) : (<Redirect to="/" />)
           }} />
 
-          <Route exact path="/leaderboards" component={Leaderboard} />
-     
+          <Route exact path="/leaderboard" component={Leaderboard} />
+
+
         </div>
       </Router>
-    );  
+    );
   }
- 
+
 }
 function requireAuth(nextState, replace){
   console.log("yeah!")
-    
+
 }
 
 const mapStateToProps = (state) => {
@@ -63,4 +71,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, null)(App);
-

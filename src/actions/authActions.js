@@ -50,7 +50,7 @@ export const signup = (user, history) => {
       headers: {
         'Content-Type': 'application/json',
       },
-        
+
         body: JSON.stringify({user})
       })
         .then(res => res.json())
@@ -64,15 +64,15 @@ export const signup = (user, history) => {
             sessionStorage.setItem('Token', response.token);
             dispatch(signupSuccess(response.user))
             history.push("/")
-          }        
+          }
         })
         .catch( errors => {
-          
+
           sessionStorage.clear()
           dispatch(signupFailure(errors))
         })
   }
-      
+
 }
 
 export const login = (user, history) => {
@@ -83,29 +83,28 @@ export const login = (user, history) => {
       headers: {
         'Content-Type': 'application/json',
       },
-        
+
         body: JSON.stringify({user})
       })
         .then(res => res.json())
         .then((response) => {
-        
+
           if (response.errors) {
-            
+
             throw Error(response.errors);
-          
+
           } else{
             sessionStorage.setItem('Token', response.token);
             history.push("/")
             dispatch(loginSuccess(response.user))
-          }        
+          }
         })
         .catch( errors => {
-        
+
           sessionStorage.clear()
           dispatch(loginFailure(errors))
         })
   }
-      
 }
 
 export const logout = (history) => {
