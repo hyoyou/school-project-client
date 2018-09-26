@@ -50,7 +50,7 @@ class Location extends Component {
             }
         })
 
-        this.props.updateUser(this.state.user);
+        await this.props.updateUser(this.state.user);
         this.props.history.push('/leaderboard');
     }
 
