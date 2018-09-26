@@ -71,12 +71,8 @@ class Signup extends Component {
     }
           
   render() {
-<<<<<<< HEAD
-=======
-    
     const errors = this.state.authErrors
     console.log(errors)
->>>>>>> 207a7d8dea7b897be1fa80e440637b0ae307923e
     return(
       <section className="row form-div">
         <div className="col-sm-3"></div>

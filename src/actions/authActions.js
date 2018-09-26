@@ -55,18 +55,12 @@ export const signup = (user, history) => {
       })
         .then(res => res.json())
         .then((response) => {
-<<<<<<< HEAD
-          if (response.message) {
-            throw Error({response});
-          } else {
-=======
           
           if (response.errors) {
            
             throw Error(response.errors);
           
           } else{
->>>>>>> 207a7d8dea7b897be1fa80e440637b0ae307923e
             sessionStorage.setItem('Token', response.token);
             dispatch(signupSuccess(response.user))
             history.push("/")
@@ -74,11 +68,7 @@ export const signup = (user, history) => {
         })
         .catch((errors) => {
           sessionStorage.clear()
-<<<<<<< HEAD
-          dispatch(authFailure(errors))
-=======
           dispatch(signupFailure(errors))
->>>>>>> 207a7d8dea7b897be1fa80e440637b0ae307923e
         })
   }
 }
