@@ -7,7 +7,8 @@ const INITIAL_STATE = {
     no_of_checkins: 0,
     user_locations_attributes: []
   },
-  errors: []
+  login_errors: [],
+  signup_errors: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -19,7 +20,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         authenticated: true,
         current_user: {...action.user},
-        errors: []
+        login_errors: []
       }
 
     case 'SIGNUP':
@@ -27,7 +28,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         authenticated: true,
         current_user: action.user,
-        errors: []
+        signup_errors: []
       }
 
       
@@ -38,12 +39,22 @@ export default (state = INITIAL_STATE, action) => {
         current_user: {},
       }
       
-    case 'AUTHENTICATION_FAILURE':
+    case 'LOGIN_FAILURE':
+    
       return {
         ...state,
         authenticated: false,
         current_user: {},
-        errors: action.errors
+        login_errors: action.errors
+      }
+
+      case 'SIGNUP_FAILURE':
+      
+      return {
+        ...state,
+        authenticated: false,
+        current_user: {},
+        signup_errors: action.errors
       }
     
     case 'LOAD_USER_SUCCESS':
@@ -55,11 +66,12 @@ export default (state = INITIAL_STATE, action) => {
       }
 
     case 'UPDATE_USER_SUCCESS':
+      
       return {
         ...state,
         authenticated: true,
-        current_user: action.payload
-        //current_user: {...state.current_user, user_locations_attributes: [...state.current_user.user_locations_attributes, action.payload.user.user_locations_attributes]}
+        //current_user: {...action.payload}
+        current_user: {...state.current_user, user_locations_attributes:  [...action.payload.user.user_locations_attributes]}
       }
 
     default:
