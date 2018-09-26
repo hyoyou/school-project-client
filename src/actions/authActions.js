@@ -1,5 +1,5 @@
- const API_URL = "http://192.168.1.190:3001/api"
-//const API_URL = "http://localhost:3001/api"
+//const API_URL = "http://192.168.1.190:3001/api"
+const API_URL = "http://localhost:3001/api"
 
 const signupSuccess = (user) => {
   return {
