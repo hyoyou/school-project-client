@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-
           <Header />
           <Route exact path="/" component={Home} />
           { !sessionStorage.Token ?
@@ -27,29 +26,23 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
 
-
-
           <Route path="/locations" render={() => {
             return sessionStorage.Token ? (<Location />) : (<Redirect to="/" />)
           }} />
-
 
           <Route path="/profile" render={() => {
             return sessionStorage.Token ? (<Profile />) : (<Redirect to="/" />)
           }} />
 
           <Route exact path="/leaderboard" component={Leaderboard} />
-
-
         </div>
       </Router>
     );
   }
-
 }
+
 function requireAuth(nextState, replace){
   console.log("yeah!")
-
 }
 
 const mapStateToProps = (state) => {

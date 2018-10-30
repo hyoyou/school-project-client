@@ -2,17 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-// const username = props.username ?
-//   capitalizeUsername(props.username) : ""
-
-// const capitalizeUsername = (username) => {
-//   let capitalized = []
-//   username.split(" ").forEach(name => {
-//     capitalized.push(name.slice(0, 1).toUpperCase() + name.slice(1, name.length))
-//   })
-//   return capitalized.join(" ")
-// }
-
 class Home extends React.Component {
   state = {
     redirect: false
