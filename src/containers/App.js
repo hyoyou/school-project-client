@@ -14,53 +14,35 @@ import Profile from '../components/Profile';
 
 
 class App extends Component {
-
-
-  componentDidMount() {
-
-  }
-
   render() {
-
-
     return (
       <Router>
         <div>
-
           <Header />
-          <Route path="/" component={Home} />
-
+          <Route exact path="/" component={Home} />
           { !sessionStorage.Token ?
-
-
             <Route exact path="/" component={AuthPanel} /> : ""
           }
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
 
-
-
           <Route path="/locations" render={() => {
             return sessionStorage.Token ? (<Location />) : (<Redirect to="/" />)
           }} />
-
 
           <Route path="/profile" render={() => {
             return sessionStorage.Token ? (<Profile />) : (<Redirect to="/" />)
           }} />
 
           <Route exact path="/leaderboard" component={Leaderboard} />
-
-
         </div>
       </Router>
     );
   }
-
 }
+
 function requireAuth(nextState, replace){
   console.log("yeah!")
-
 }
 
 const mapStateToProps = (state) => {
