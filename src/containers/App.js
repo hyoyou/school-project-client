@@ -14,25 +14,14 @@ import Profile from '../components/Profile';
 
 
 class App extends Component {
-
-
-  componentDidMount() {
-
-  }
-
   render() {
-
-
     return (
       <Router>
         <div>
 
           <Header />
-          <Route path="/" component={Home} />
-
+          <Route exact path="/" component={Home} />
           { !sessionStorage.Token ?
-
-
             <Route exact path="/" component={AuthPanel} /> : ""
           }
           <Route exact path="/login" component={Login} />

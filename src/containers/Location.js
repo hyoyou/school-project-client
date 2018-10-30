@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Modal } from 'react-materialize';
 
-//const loc_url = 'http://192.168.1.190:3001/api/locations'
+// const loc_url = 'http://192.168.1.190:3001/api/locations'
 // const loc_url = 'http://localhost:3000/api/locations'
 const loc_url = 'http://localhost:3001/api/locations'
 
